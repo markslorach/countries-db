@@ -10,12 +10,12 @@ const CountryCard = ({ country }: { country: Country }) => {
           alt={country.name.common}
         />
       </figure>
-
+      
       <div className="space-y-2">
         <h2 className="font-semibold text-lg">{country.name.common}</h2>
-        <p><span className="font-semibold">Population:</span> {country.population}</p>
+        <p><span className="font-semibold">Population:</span> {country.population.toLocaleString()}</p>
         <p><span className="font-semibold">Region:</span> {country.region}</p>
-        <p><span className="font-semibold">Capital:</span> {country.capital}</p>
+        <p><span className="font-semibold">Capital:</span> {country.capital ? country.capital : "No Capital"}</p>
       </div>
     </div>
   );
