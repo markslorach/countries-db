@@ -1,5 +1,6 @@
-import { getCountries } from "@/lib/data";
+import { getCountries } from "@/lib/countries";
 import { Country } from "./types";
+import CountryCard from "./components/CountryCard";
 
 export default async function Home() {
   const { data = [], error } = await getCountries();
@@ -15,14 +16,10 @@ export default async function Home() {
   return (
     <main>
       <h1>Countries Explorer</h1>
-      <ul>
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {countriesInAlphabeticalOrder.map((country: Country) => (
           <li key={country.cca3}>
-            <img src={country.flags.png} alt={country.name.common} />
-            <h2>{country.name.common}</h2>
-            <p>Population: {country.population}</p>
-            <p>Region: {country.region}</p>
-            <p>Capital: {country.capital}</p>
+            <CountryCard country={country} />
           </li>
         ))}
       </ul>
