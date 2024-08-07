@@ -10,7 +10,7 @@ const notoSans = Noto_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Countries DB",
-  description: "Frontend Mentor advanced challenge",
+  description: "A simple app to display country information",
 };
 
 export default function RootLayout({
