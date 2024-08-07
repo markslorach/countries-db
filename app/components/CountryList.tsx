@@ -50,6 +50,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }}
           >
             <CountryCard country={country} />
           </motion.li>

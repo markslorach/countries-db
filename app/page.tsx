@@ -11,11 +11,9 @@ export default async function Home() {
 
   return (
     <main className="container mb-10">
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <CountryList data={countriesInAlphabeticalOrder} />
-      )}
+      {error && <p>{error}</p>}
+
+      <CountryList data={countriesInAlphabeticalOrder} />
     </main>
   );
 }

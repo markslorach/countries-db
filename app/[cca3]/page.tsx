@@ -3,6 +3,7 @@ import { Country } from "../types";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import BackButton from "../components/shared/BackButton";
 
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   const { data, error } = await getCountry(params.cca3);
@@ -11,12 +12,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   return (
     <div className="container">
       <div className="my-10">
-        <Link href="/">
-          <Button variant="outline" className="shadow-sm h-14 rounded-lg">
-            <ArrowLeft className="mr-1.5 w-5 h-5" />
-            Back
-          </Button>
-        </Link>
+        <BackButton />
       </div>
       {error && <p>{error}</p>}
       <section className="grid grid-cols-2 gap-10">
@@ -28,7 +24,10 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
           />
         </div>
         <div className="col-span-1">
-          <h1 className="text-xl font-semibold leading-none">{country.name.common}</h1>
+          <h1 className="text-2xl font-semibold leading-none mb-2">
+            {country.name.common}
+          </h1>
+          <span className="text-gray-600">{country.name.official}</span>
         </div>
       </section>
     </div>

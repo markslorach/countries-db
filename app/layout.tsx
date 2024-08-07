@@ -26,10 +26,12 @@ export default function RootLayout({
           defaultTheme="light"
           disableTransitionOnChange
         >
-          <main>
-            <NavBar />
-            {children}
-            <Footer />
+          <main className="flex flex-col min-h-dvh md:min-h-screen">
+              <NavBar />
+            <div className="flex-grow">
+              {children}
+            </div>
+              <Footer />
           </main>
         </ThemeProvider>
       </body>
