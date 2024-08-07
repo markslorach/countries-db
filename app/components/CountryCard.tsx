@@ -4,7 +4,7 @@ import { Country } from "../types";
 const CountryCard = ({ country }: { country: Country }) => {
   return (
     <Link href={`/${country.cca3}`}>
-      <div className="p-6 rounded-lg shadow-sm bg-white space-y-7 border border-gray-300/50 md:hover:scale-[104%] transition-transform">
+      <div className="p-5 rounded-lg shadow-sm bg-white space-y-7 border border-gray-300/50 md:hover:scale-[104%] transition-transform">
         <div className="aspect-video">
           <img
             className="object-cover w-full h-full rounded-lg shadow-sm"
