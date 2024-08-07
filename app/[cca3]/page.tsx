@@ -38,7 +38,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   }
 
   return (
-    <div className="container">
+    <div className="px-4 md:container">
       <div className="my-10">
         <BackButton />
       </div>
