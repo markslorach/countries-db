@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="container flex h-20 items-center justify-between">
+    <footer className="container flex h-20 items-center justify-between mt-10">
     <p>
       created by{" "}
       <Link

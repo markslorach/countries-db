@@ -56,7 +56,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
           </h1>
           <span className="text-gray-600">{country.name.official}</span>
 
-          <dl className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-5">
+          <dl className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-5">
             <div className="col-span-1">
               <dt className="font-semibold">Native Name</dt>
               <dd>{nativeName.common}</dd>
@@ -78,7 +78,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
               <dd>{country.capital?.join(", ") ?? "No Capital"}</dd>
             </div>
             <div className="col-span-1">
-              <dt className="font-semibold">Currencies</dt>
+              <dt className="font-semibold">Currency</dt>
               <dd>
                 {currencies.name}
                 {currencies.name === "n/a"
@@ -94,12 +94,18 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
               </dd>
             </div>
           </dl>
-          <dt className="font-semibold mb-2 mt-10">Border Countries</dt>
+          <dt
+            className={`font-semibold mt-10 ${
+              borderCountries.length > 0 ? "mb-2" : ""
+            }`}
+          >
+            Border Countries
+          </dt>
 
           {borderCountries.length > 0 ? (
             <div className="flex gap-3 flex-wrap">
-              {borderCountries.map((borderCountry: Country, idx) => (
-                <Link href={`/${borderCountry.cca3}`} key={idx}>
+              {borderCountries.map((borderCountry: Country) => (
+                <Link href={`/${borderCountry.cca3}`} key={country.cca3}>
                   <Button
                     variant="outline"
                     className="shadow-smrounded-lg px-3"
