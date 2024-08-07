@@ -3,5 +3,5 @@
 @tailwind utilities;
   
 body {
-    @apply overflow-scroll bg-gray-50
+    @apply overflow-y-scroll bg-gray-50
 }
