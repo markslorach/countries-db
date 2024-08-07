@@ -9,7 +9,7 @@ import Footer from "./components/shared/Footer";
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Countries of the world API explorer",
+  title: "Countries DB",
   description: "Frontend Mentor advanced challenge",
 };
 

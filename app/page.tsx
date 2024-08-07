@@ -10,7 +10,7 @@ export default async function Home() {
   );
 
   return (
-    <main className="container mb-10">
+    <main className="px-4 md:container mb-10">
       {error && <p>{error}</p>}
 
       <CountryList data={countriesInAlphabeticalOrder} />

@@ -23,3 +23,7 @@ export async function getCountry(cca3: string) {
     return { error: "Error fetching data" };
   }
 }
+
+// Get boardering countries by name from cca3 code
+
+
