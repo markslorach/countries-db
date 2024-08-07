@@ -31,7 +31,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
 
   return (
     <>
-      <div className="flex justify-between py-10">
+      <div className="flex flex-wrap md:flex-nowrap justify-between py-10 gap-5">
         <SearchCountry search={search} setSearch={setSearch} />
 
         <RegionSelect
