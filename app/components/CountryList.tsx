@@ -5,6 +5,7 @@ import { removeDuplicates } from "@/utils/helpers";
 import CountryCard from "./CountryCard";
 import RegionSelect from "./RegionSelect";
 import SearchCountry from "./SearchCountry";
+import { motion } from "framer-motion";
 
 const CountryList = ({ data }: { data: Country[] }) => {
   const [search, setSearch] = useState("");
@@ -23,6 +24,11 @@ const CountryList = ({ data }: { data: Country[] }) => {
 
   const uniqueRegions = removeDuplicates(data.map((country) => country.region));
 
+  const cardVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.5 } },
+  };
+
   return (
     <>
       <div className="flex justify-between py-10">
@@ -39,9 +45,14 @@ const CountryList = ({ data }: { data: Country[] }) => {
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredCountries.map((country) => (
-          <li key={country.cca3}>
+          <motion.li
+            key={country.cca3}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+          >
             <CountryCard country={country} />
-          </li>
+          </motion.li>
         ))}
       </ul>
     </>
