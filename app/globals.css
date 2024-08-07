@@ -5,3 +5,7 @@
 body {
     @apply overflow-y-scroll bg-gray-50
 }
+
+dd {
+    @apply mb-2
+}
