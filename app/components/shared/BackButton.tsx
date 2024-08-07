@@ -7,7 +7,7 @@ const BackButton = () => {
     <Link href="/">
       <Button variant="outline" className="shadow-sm h-14 rounded-lg">
         <ArrowLeft className="mr-1.5 w-5 h-5" />
-        Back
+        Home
       </Button>
     </Link>
   );

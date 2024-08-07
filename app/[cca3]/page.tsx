@@ -1,6 +1,8 @@
 import { getCountry } from "@/lib/countries";
 import { Country } from "../types";
 import BackButton from "../components/shared/BackButton";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   const { data, error } = await getCountry(params.cca3);
@@ -25,13 +27,23 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
     ? Object.values(country.currencies)[0]
     : { name: "n/a", symbol: "" };
 
+  let borderCountries = [];
+  if (country.borders) {
+    borderCountries = await Promise.all(
+      country.borders.map(async (border) => {
+        const { data } = await getCountry(border);
+        return data;
+      })
+    );
+  }
+
   return (
     <div className="container">
       <div className="my-10">
         <BackButton />
       </div>
 
-      <section className="grid md:grid-cols-2 gap-20">
+      <section className="grid md:grid-cols-2 gap-10 md:gap-20">
         <img
           className="object-cover w-full rounded-lg shadow-sm col-span-1"
           src={country.flags.png}
@@ -44,7 +56,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
           </h1>
           <span className="text-gray-600">{country.name.official}</span>
 
-          <dl className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <dl className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-5">
             <div className="col-span-1">
               <dt className="font-semibold">Native Name</dt>
               <dd>{nativeName.common}</dd>
@@ -82,6 +94,24 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
               </dd>
             </div>
           </dl>
+          <dt className="font-semibold mb-2 mt-10">Border Countries</dt>
+
+          {borderCountries.length > 0 ? (
+            <div className="flex gap-3 flex-wrap">
+              {borderCountries.map((borderCountry: Country, idx) => (
+                <Link href={`/${borderCountry.cca3}`} key={idx}>
+                  <Button
+                    variant="outline"
+                    className="shadow-smrounded-lg px-3"
+                  >
+                    {borderCountry.name.common}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            "None"
+          )}
         </div>
       </section>
     </div>

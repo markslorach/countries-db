@@ -15,4 +15,5 @@ export type Country = {
   cca3: string;
   currencies: Record<string, { name: string, symbol: string }>;
   languages: Record<string, string>;
+  borders: string[];
 };
