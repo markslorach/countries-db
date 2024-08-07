@@ -7,7 +7,14 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   const country = data as Country;
 
   if (error) {
-    return <p>{error}</p>;
+    return (
+      <div className="container">
+        <div className="my-10">
+          <BackButton />
+        </div>
+        <p>{error}</p>
+      </div>
+    );
   }
 
   const nativeName = country.name.nativeName
@@ -62,7 +69,9 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
               <dt className="font-semibold">Currencies</dt>
               <dd>
                 {currencies.name}
-                {currencies.name === "n/a" ? "" : `${" "}(${currencies.symbol})`}
+                {currencies.name === "n/a"
+                  ? ""
+                  : `${" "}(${currencies.symbol})`}
               </dd>
 
               <dt className="font-semibold">Languages</dt>
