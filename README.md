@@ -19,7 +19,7 @@ A simple application to view information on the countries of the world. Based on
 I plan on building this into a full-stack application with user authentication and a database so users can add their favourite countries.
 
 ## Links
-Deployed Link - https://countriesdb.vercel.app
+Deployed Link - https://countriesdb.vercel.app \
 Project Link - https://github.com/markslorach/countries-db.git
 
 ## Contact
