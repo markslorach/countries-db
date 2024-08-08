@@ -15,7 +15,7 @@ const Footer = () => {
       </Link>
       .
     </p>
-    <Link href="https://github.com/markslorach/minilist.git" target="_blank">
+    <Link href="https://github.com/markslorach/countries-db.git" target="_blank">
       <Github className="h-5 w-5" />
     </Link>
   </footer>
