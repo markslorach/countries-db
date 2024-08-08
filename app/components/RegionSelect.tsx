@@ -20,7 +20,7 @@ const RegionSelect = ({
 }: Props) => {
   return (
     <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-      <SelectTrigger className="md:w-52 h-14 px-5 shadow-sm">
+      <SelectTrigger className="md:w-52 h-14 px-5 shadow-sm dark:bg-gray-700 dark:border-gray-500/50">
         <SelectValue placeholder="Filter by region" />
       </SelectTrigger>
       <SelectContent>

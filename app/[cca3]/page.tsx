@@ -54,7 +54,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
           <h1 className="text-2xl font-semibold leading-none mb-2">
             {country.name.common}
           </h1>
-          <span className="text-gray-600">{country.name.official}</span>
+          <span className="text-gray-600 dark:text-gray-300">{country.name.official}</span>
 
           <dl className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-5">
             <div className="col-span-1">
@@ -108,7 +108,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
                 <Link href={`/${borderCountry.cca3}`} key={country.cca3}>
                   <Button
                     variant="outline"
-                    className="shadow-smrounded-lg px-3"
+                    className="shadow-smrounded-lg px-3 dark:bg-gray-700 dark:border-gray-500/50"
                   >
                     {borderCountry.name.common}
                   </Button>
