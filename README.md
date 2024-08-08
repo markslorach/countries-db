@@ -16,8 +16,9 @@ A simple application to view information on the countries of the world. Based on
 * View more info about a country and its bordering countries
 * Fully mobile responsive
 
-## Future
-I plan on building this into a full-stack application with user authentication and a database so users can add their favourite countries.
+## Future Considerations
+-  User authentication
+-  Ability to add countries to favorites 
 
 ## Links
 Deployed Link - https://countriesdb.vercel.app \
@@ -30,5 +31,3 @@ Mark Slorach - hello@markslorach.com
 ![SCR-20240808-qkan](https://github.com/user-attachments/assets/52317edb-5e2c-40b5-bac7-c91b97023d1c)
 ![SCR-20240808-qkcy](https://github.com/user-attachments/assets/c507134c-8d33-47df-85dc-f11ef7eb46bb)
 ![SCR-20240808-qkfm](https://github.com/user-attachments/assets/81f4d382-0281-47f5-b06e-26c7f0b7518e)
-
-
