@@ -27,6 +27,8 @@ Project Link - https://github.com/markslorach/countries-db.git
 Mark Slorach - hello@markslorach.com
 
 ## Screenshots
-![countries_db_home](https://github.com/user-attachments/assets/3d7f0097-d773-4c29-aac3-dacf7c4e4ce0)
-![countries_db_details](https://github.com/user-attachments/assets/07ca6601-4aee-4080-90b3-6ac6f88bce16)
+![SCR-20240808-qkan](https://github.com/user-attachments/assets/52317edb-5e2c-40b5-bac7-c91b97023d1c)
+![SCR-20240808-qkcy](https://github.com/user-attachments/assets/c507134c-8d33-47df-85dc-f11ef7eb46bb)
+![SCR-20240808-qkfm](https://github.com/user-attachments/assets/81f4d382-0281-47f5-b06e-26c7f0b7518e)
+
 
