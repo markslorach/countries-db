@@ -15,7 +15,7 @@ A simple application to view information on the countries of the world. Based on
 * Filter countries by region
 * View more info about a country and its bordering countries
 
-### Future
+## Future
 I plan on building this into a full-stack application with user authentication and a database so users can add their favourite countries.
 
 ## Links
