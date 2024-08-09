@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -22,7 +22,13 @@ const ScrollButton = () => {
     });
   };
 
-  window.addEventListener("scroll", toggleVisible);
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisible);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisible);
+    };
+  }, []);
 
   return (
     <Button
