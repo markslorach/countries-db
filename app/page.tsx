@@ -1,6 +1,7 @@
 import { getCountries } from "@/lib/countries";
 import { Country } from "./types";
 import CountryList from "./components/CountryList";
+import ScrollButton from "./components/shared/ScrollButton";
 
 export default async function Home() {
   const { data = [], error } = await getCountries();
@@ -14,6 +15,7 @@ export default async function Home() {
       {error && <p>{error}</p>}
 
       <CountryList data={countriesInAlphabeticalOrder} />
+      <ScrollButton />
     </main>
   );
 }

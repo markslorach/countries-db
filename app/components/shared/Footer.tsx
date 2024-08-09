@@ -15,12 +15,12 @@ const Footer = () => {
         </Link>
         .
       </p>
-      <Link
+      {/* <Link
         href="https://github.com/markslorach/countries-db.git"
         target="_blank"
       >
         <Github className="h-5 w-5" />
-      </Link>
+      </Link> */}
     </footer>
   );
 };
