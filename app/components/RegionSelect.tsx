@@ -29,7 +29,7 @@ const RegionSelect = ({
     setTimeout(() => {
       setSelectedRegion(region);
       setIsDelayed(false);
-    }, 300); 
+    }, 1000); 
   };
 
   return (
