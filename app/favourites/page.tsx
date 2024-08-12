@@ -1,8 +1,6 @@
-import React from 'react'
-
 const FavouriteCountriesPage = () => {
   return (
-    <div>FavouriteCountriesPage</div>
+    <div className="container">FavouriteCountriesPage</div>
   )
 }
 
