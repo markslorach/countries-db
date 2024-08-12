@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "./components/shared/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "./components/shared/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 
@@ -18,21 +19,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={notoSans.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <main className="flex flex-col min-h-dvh md:min-h-screen">
-            <NavBar />
-            <div className="flex-grow">{children}</div>
-            <Footer />
-          </main>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={notoSans.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <main className="flex flex-col min-h-dvh md:min-h-screen">
+              <NavBar />
+              <div className="flex-grow">{children}</div>
+              <Footer />
+            </main>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
