@@ -25,6 +25,7 @@ export async function getUser() {
   }
 }
 
+// Gets all favourite countries for a logged in user
 export async function getFavouriteCountries() {
   try {
     const user = await getUser();
@@ -37,5 +38,52 @@ export async function getFavouriteCountries() {
     return { countries };
   } catch (error) {
     return { error: "Error fetching data" };
+  }
+}
+
+// Adds a country to a user's favourites
+export async function addFavouriteCountry(countryCode: string) {
+  try {
+    const user = await getUser();
+    if (!user) return { error: "User not found" };
+
+    const existingCountry = await prisma.favouriteCountry.findFirst({
+      where: { id: user.id, country: countryCode },
+    });
+
+    if (existingCountry) return { error: "Country already added" };
+
+    const country = await prisma.favouriteCountry.create({
+      data: { userId: user.id, country: countryCode },
+    });
+
+    return { country };
+  } catch (error) {
+    return { error: "Error adding country" };
+  }
+}
+
+// Removes a country from a user's favourites
+export async function removeFavouriteCountry(countryCode: string) {
+  try {
+    const user = await getUser();
+    if (!user) return { error: "User not found" };
+
+    const existingCountry = await prisma.favouriteCountry.findFirst({
+      where: { userId: user.id, country: countryCode },
+    });
+
+    if (!existingCountry) return { error: "Country not found" };
+
+    const country = await prisma.favouriteCountry.delete({
+      where: {
+        userId: user.id,
+        id: existingCountry.id,
+      },
+    });
+
+    return { country };
+  } catch (error) {
+    return { error: "Error removing country" };
   }
 }
