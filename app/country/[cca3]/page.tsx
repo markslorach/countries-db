@@ -4,21 +4,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Country } from "@/app/types";
 import BackButton from "@/app/components/shared/BackButton";
+import { notFound } from "next/navigation";
 
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {
-  const { data, error } = await getCountry(params.cca3);
+  const { data } = await getCountry(params.cca3);
   const country = data as Country;
 
-  if (error) {
-    return (
-      <div className="container">
-        <div className="my-10">
-          <BackButton />
-        </div>
-        <p>{error}</p>
-      </div>
-    );
-  }
+  if (!country) notFound()
 
   const nativeName = country.name.nativeName
     ? Object.values(country.name.nativeName)[0]
