@@ -1,8 +1,9 @@
 import { getCountry } from "@/lib/countries";
-import { Country } from "../types";
-import BackButton from "../components/shared/BackButton";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Country } from "@/app/types";
+import BackButton from "@/app/components/shared/BackButton";
 
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   const { data, error } = await getCountry(params.cca3);

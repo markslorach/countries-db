@@ -4,7 +4,6 @@ import "./globals.css";
 import NavBar from "./components/shared/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "./components/shared/Footer";
-import { ClerkProvider } from "@clerk/nextjs";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 
@@ -19,7 +18,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
       <html lang="en">
         <body className={notoSans.className}>
           <ThemeProvider
@@ -36,6 +34,5 @@ export default function RootLayout({
           </ThemeProvider>
         </body>
       </html>
-    </ClerkProvider>
   );
 }
