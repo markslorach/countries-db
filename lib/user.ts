@@ -24,3 +24,18 @@ export async function getUser() {
     console.error(error);
   }
 }
+
+export async function getFavouriteCountries() {
+  try {
+    const user = await getUser();
+    if (!user) return { error: "User not found" };
+
+    const countries = await prisma.favouriteCountry.findMany({
+      where: { userId: user.id },
+    });
+
+    return { countries };
+  } catch (error) {
+    return { error: "Error fetching data" };
+  }
+}

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
+import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { SignOutButton } from "./SignOutButton";
 import { getUser } from "@/lib/user";
@@ -8,7 +8,7 @@ import { auth } from "@clerk/nextjs/server";
 
 const NavBar = async () => {
   const { userId } = auth();
-  
+
   if (userId) await getUser();
 
   return (
