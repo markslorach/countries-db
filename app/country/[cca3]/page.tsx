@@ -1,9 +1,8 @@
-import { getCountry } from "@/lib/countries";
-
 import Link from "next/link";
+import BackButton from "@/app/components/shared/BackButton";
+import { getCountry } from "@/lib/countries";
 import { Button } from "@/components/ui/button";
 import { Country } from "@/app/types";
-import BackButton from "@/app/components/shared/BackButton";
 import { notFound } from "next/navigation";
 
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {

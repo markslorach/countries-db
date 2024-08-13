@@ -9,3 +9,7 @@ body {
 dd {
     @apply mb-2
 }
+
+.cl-internal-1dauvpw {
+    @apply hidden
+}
