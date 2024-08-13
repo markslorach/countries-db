@@ -3,7 +3,7 @@ import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 
 const AddToFavouritesButton = ({ isFavourite }: { isFavourite: boolean }) => {
   return (
-    <button type="button" aria-label="Add country to favourites">
+    <button className="-mt-0.5" type="submit" aria-label="Add country to favourites">
       {isFavourite ? (
         <StarSolid className=" w-8 h-8 text-blue-500" />
       ) : (
