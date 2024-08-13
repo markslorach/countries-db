@@ -97,7 +97,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
           {borderCountries.length > 0 ? (
             <div className="flex gap-3 flex-wrap">
               {borderCountries.map((borderCountry: Country) => (
-                <Link href={`/${borderCountry.cca3}`} key={country.cca3}>
+                <Link href={`/country/${borderCountry.cca3}`} key={country.cca3}>
                   <Button
                     variant="outline"
                     className="shadow-smrounded-lg px-3 dark:bg-gray-700 dark:border-gray-500/50"
