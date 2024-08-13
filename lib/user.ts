@@ -25,7 +25,7 @@ export async function getUser() {
   }
 }
 
-// Gets all favourite countries for a logged in user
+// Get all favourite countries for a logged in user
 export async function getFavouriteCountries() {
   try {
     const user = await getUser();
@@ -41,7 +41,7 @@ export async function getFavouriteCountries() {
   }
 }
 
-// Adds a country to a user's favourites
+// Add a country to a user's favourites
 export async function addFavouriteCountry(countryCode: string) {
   try {
     const user = await getUser();
@@ -63,7 +63,7 @@ export async function addFavouriteCountry(countryCode: string) {
   }
 }
 
-// Removes a country from a user's favourites
+// Remove a country from a user's favourites
 export async function removeFavouriteCountry(countryCode: string) {
   try {
     const user = await getUser();

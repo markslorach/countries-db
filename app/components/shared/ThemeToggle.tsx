@@ -18,15 +18,13 @@ const ThemeToggle = () => {
   if (!mounted) return null;
 
   return (
-    <>
-      <button aria-label="Toggle Theme" type="button" onClick={toggleTheme}>
-        {theme === "dark" ? (
-          <SunIcon className="h-6 w-6" />
-        ) : (
-          <MoonIcon className="h-6 w-6" />
-        )}
-      </button>
-    </>
+    <button aria-label="Toggle Theme" type="button" onClick={toggleTheme}>
+      {theme === "dark" ? (
+        <SunIcon className="h-6 w-6" />
+      ) : (
+        <MoonIcon className="h-6 w-6" />
+      )}
+    </button>
   );
 };
 

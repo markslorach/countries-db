@@ -1,10 +1,11 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { SignOutButton } from "./SignOutButton";
 import { getUser } from "@/lib/user";
 import { auth } from "@clerk/nextjs/server";
+import { SignInButton } from "./SignInButton";
 
 const NavBar = async () => {
   const { userId } = auth();
@@ -21,7 +22,8 @@ const NavBar = async () => {
 
         <div className="flex items-center space-x-3">
           <SignedOut>
-            <SignInButton>Sign In</SignInButton>
+            
+            <SignInButton />
           </SignedOut>
           <SignedIn>
             <SignOutButton />

@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { useClerk } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 
@@ -7,6 +8,12 @@ export const SignOutButton = () => {
   const { signOut } = useClerk();
 
   return (
-    <button onClick={() => signOut({ redirectUrl: pathname })}>Sign Out</button>
+    <Button
+      onClick={() => signOut({ redirectUrl: pathname })}
+      variant="outline"
+      className="shadow-sm rounded-lg dark:bg-gray-700 dark:border-gray-500/50"
+    >
+      Sign Out
+    </Button>
   );
 };
