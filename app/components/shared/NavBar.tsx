@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignOutButton } from "./SignOutButton";
 
 const NavBar = () => {
-
   return (
     <nav className="h-20 border-b border-gray-300/50 dark:border-gray-500/50 shadow-sm bg-white dark:bg-gray-700">
       <div className="px-4 md:container flex h-full items-center justify-between">
@@ -12,7 +13,15 @@ const NavBar = () => {
           <h1 className="font-semibold">Countries DB</h1>
         </Link>
 
-        <ThemeToggle />
+        <div className="flex items-center space-x-2.5">
+          <SignedOut>
+            <SignInButton>Sign In</SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <SignOutButton />
+          </SignedIn>
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
