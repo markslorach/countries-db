@@ -3,7 +3,7 @@ import { useOptimistic } from "react";
 import {
   addFavouriteCountryAction,
   removeFavouriteCountryAction,
-} from "@/app/actions/actions";
+} from "@/app/userActions";
 import AddToFavouritesButton from "./AddToFavouritesButton";
 
 type Props = {
