@@ -6,8 +6,12 @@ import CountryCard from "./CountryCard";
 import RegionSelect from "./RegionSelect";
 import SearchCountry from "./SearchCountry";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import ScrollButton from "./shared/ScrollButton";
 
 const CountryList = ({ data }: { data: Country[] }) => {
+  const pathname = usePathname();
+
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("all");
 
@@ -41,7 +45,12 @@ const CountryList = ({ data }: { data: Country[] }) => {
         />
       </div>
 
-      {!filteredCountries.length && <p>No countries found.</p>}
+      {!filteredCountries.length &&
+        (pathname === "/favourite-countries" ? (
+          <p>Add a country to your favourites to see it here.</p>
+        ) : (
+          <p>No countries found</p>
+        ))}
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredCountries.map((country) => (
@@ -56,6 +65,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
           </motion.li>
         ))}
       </ul>
+      <ScrollButton />
     </>
   );
 };

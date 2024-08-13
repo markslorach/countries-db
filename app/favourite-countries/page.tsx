@@ -2,7 +2,8 @@ import { getCountry } from "@/lib/countries";
 import { getFavouriteCountries } from "@/lib/user";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
-import CountryCard from "../components/CountryCard";
+import CountryList from "../components/CountryList";
+import { alphabeticalOrder } from "@/utils/helpers";
 
 const FavouriteCountriesPage = async () => {
   const { userId } = auth();
@@ -26,18 +27,15 @@ const FavouriteCountriesPage = async () => {
 
   return (
     <div className="px-4 md:container mt-10">
-      <h1 className="mb-10 text-lg font-semibold">Favourite Countries</h1>
       <SignedOut>
-        <p>Please sign in to see your favourite countries</p>
+        <p>Please sign in to see your favourite countries.</p>
       </SignedOut>
       <SignedIn>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {favouriteCountries.map((country) => (
-            <li key={country.cca3}>
-              <CountryCard country={country} />
-            </li>
-          ))}
-        </ul>
+        {!favouriteCountries.length ? (
+          <p>Add a country to your favourites to see it here.</p>
+        ) : (
+          <CountryList data={alphabeticalOrder(favouriteCountries)} />
+        )}
       </SignedIn>
     </div>
   );
