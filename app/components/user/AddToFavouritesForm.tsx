@@ -1,10 +1,7 @@
 "use client";
 import { useOptimistic } from "react";
-import {
-  addFavouriteCountryAction,
-  removeFavouriteCountryAction,
-} from "@/app/userActions";
 import AddToFavouritesButton from "./AddToFavouritesButton";
+import { addFavouriteCountryAction, removeFavouriteCountryAction } from "@/app/userActions";
 
 type Props = {
   countryCode: string;
