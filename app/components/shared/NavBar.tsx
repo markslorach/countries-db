@@ -4,11 +4,12 @@ import ThemeToggle from "./ThemeToggle";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { SignOutButton } from "./SignOutButton";
 import { getUser } from "@/lib/user";
-
+import { auth } from "@clerk/nextjs/server";
 
 const NavBar = async () => {
-
-  await getUser()
+  const { userId } = auth();
+  
+  if (userId) await getUser();
 
   return (
     <nav className="h-20 border-b border-gray-300/50 dark:border-gray-500/50 shadow-sm bg-white dark:bg-gray-700">
@@ -20,9 +21,7 @@ const NavBar = async () => {
 
         <div className="flex items-center space-x-3">
           <SignedOut>
-            <SignInButton>
-              Sign In
-            </SignInButton>
+            <SignInButton>Sign In</SignInButton>
           </SignedOut>
           <SignedIn>
             <SignOutButton />
