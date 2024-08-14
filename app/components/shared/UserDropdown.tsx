@@ -25,20 +25,18 @@ export default function UserDropdown({ name, email }: Props) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="dark:bg-gray-700">
         <div className="px-2">
-          {name ? <p className="font-semibold">{name}</p> : <p>Welcome,</p>}
+          <p className="font-semibold">{name ?? "Welcome,"}</p>
           <p className="text-sm text-gray-500 dark:text-gray-300">{email}</p>
         </div>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Link href="/favourite-countries" prefetch={false} className="w-full">
+          <Link href="/favourite-countries" className="w-full">
             Favourites
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-    
-            <SignOutButton />
-       
+          <SignOutButton />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
