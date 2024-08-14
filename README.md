@@ -8,6 +8,8 @@ A simple application to view information on the countries of the world. Based on
 - Tailwind CSS
 - Shadcn/ui
 - Axios
+- Neon Serverless Postgres
+- Clerk Auth
 
 ## Features
 * View a list of all countries
