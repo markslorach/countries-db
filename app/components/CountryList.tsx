@@ -2,15 +2,13 @@
 import { useState } from "react";
 import { Country } from "../types";
 import { removeDuplicates } from "@/utils/helpers";
+import { motion } from "framer-motion";
 import CountryCard from "./CountryCard";
 import RegionSelect from "./RegionSelect";
 import SearchCountry from "./SearchCountry";
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
 import ScrollButton from "./shared/ScrollButton";
 
 const CountryList = ({ data }: { data: Country[] }) => {
-  const pathname = usePathname();
 
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("all");

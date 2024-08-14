@@ -2,8 +2,8 @@ import { getCountry } from "@/lib/countries";
 import { getFavouriteCountries } from "@/lib/user";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
-import CountryList from "../components/CountryList";
 import { alphabeticalOrder } from "@/utils/helpers";
+import CountryList from "../components/CountryList";
 
 const FavouriteCountriesPage = async () => {
   const { userId } = auth();
