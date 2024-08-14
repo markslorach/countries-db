@@ -45,12 +45,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
         />
       </div>
 
-      {!filteredCountries.length &&
-        (pathname === "/favourite-countries" ? (
-          <p>Add a country to your favourites to see it here.</p>
-        ) : (
-          <p>No countries found</p>
-        ))}
+      {!filteredCountries.length && <p>No countries found</p>}
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredCountries.map((country) => (

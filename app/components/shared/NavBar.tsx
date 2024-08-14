@@ -2,15 +2,16 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { SignOutButton } from "./SignOutButton";
 import { getUser } from "@/lib/user";
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { SignInButton } from "./SignInButton";
+import UserDropdown from "./UserDropdown";
 
 const NavBar = async () => {
-  const { userId } = auth();
+  const user = await currentUser()
+  const userEmail = user?.emailAddresses[0]?.emailAddress as string;
 
-  if (userId) await getUser();
+  if (user) await getUser();
 
   return (
     <nav className="h-20 border-b border-gray-300/50 dark:border-gray-500/50 shadow-sm bg-white dark:bg-gray-700">
@@ -20,13 +21,12 @@ const NavBar = async () => {
           <h1 className="font-semibold">Countries DB</h1>
         </Link>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-1">
           <SignedOut>
-            
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <SignOutButton />
+            <UserDropdown name={user?.firstName || null} email={userEmail} />
           </SignedIn>
           <ThemeToggle />
         </div>
