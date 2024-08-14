@@ -25,7 +25,7 @@ Deployed Link - https://countriesdb.vercel.app \
 Project Link - https://github.com/markslorach/countries-db.git
 
 ## Test Login Credentials
-email: test@countriesdb.com
+email: test@countriesdb.com \
 p/w: test123
 
 ## Contact
