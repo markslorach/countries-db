@@ -7,6 +7,15 @@ export const SignOutButton = () => {
   const { signOut } = useClerk();
 
   return (
-    <button className="w-full flex" onClick={() => signOut({ redirectUrl: pathname })}>Sign Out</button>
+    <button
+      className="w-full flex"
+      onClick={() =>
+        signOut({
+          redirectUrl: pathname === "/favourite-countries" ? "/" : pathname,
+        })
+      }
+    >
+      Sign Out
+    </button>
   );
 };
