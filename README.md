@@ -14,11 +14,9 @@ A simple application to view information on the countries of the world. Based on
 * Search for a country
 * Filter countries by region
 * View more info about a country and its bordering countries
+* Optional user authentication
+* Logged in users can add countries to favourites
 * Fully mobile responsive
-
-## Future Considerations
--  User authentication
--  Ability to add countries to favorites 
 
 ## Links
 Deployed Link - https://countriesdb.vercel.app \
