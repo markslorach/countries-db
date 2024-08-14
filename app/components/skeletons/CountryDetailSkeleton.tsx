@@ -8,7 +8,7 @@ const CountryDetailSkeleton = () => {
       </div>
 
       <div className="grid md:grid-cols-2 gap-10 md:gap-20">
-        <div className="bg-gray-300 dark:bg-gray-700 rounded-lg shadow-sm col-span-1 h-96 animate-pulse"></div>
+        <div className="bg-gray-300 dark:bg-gray-700 rounded-lg shadow-sm col-span-1 aspect-video animate-pulse"></div>
 
         <div className="col-span-1">
           <div className="flex justify-between items-center">
