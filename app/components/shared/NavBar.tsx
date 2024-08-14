@@ -5,7 +5,7 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { getUser } from "@/lib/user";
 import { currentUser } from "@clerk/nextjs/server";
 import { SignInButton } from "./SignInButton";
-import UserDropdown from "./UserDropdown";
+import UserDropdown from "../user/UserDropdown";
 
 const NavBar = async () => {
   const user = await currentUser()
