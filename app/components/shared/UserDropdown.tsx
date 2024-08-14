@@ -25,7 +25,7 @@ export default function UserDropdown({ name, email }: Props) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="dark:bg-gray-700">
         <div className="px-2">
-          <p className="font-semibold">{name ?? "Welcome,"}</p>
+          <p className="font-semibold">{name ?? "Hello,"}</p>
           <p className="text-sm text-gray-500 dark:text-gray-300">{email}</p>
         </div>
         <DropdownMenuSeparator />
