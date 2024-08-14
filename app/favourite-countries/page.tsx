@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import FavouritesContainer from "../FavouritesContainer";
-import HomeSkeleton from "../components/skeletons/HomeSkeleton";
+import CountryListSkeleton from "../components/skeletons/CountryListSkeleton";
 
 const FavouriteCountriesPage = () => {
   return (
-    <Suspense fallback={<HomeSkeleton />}>
+    <Suspense fallback={<CountryListSkeleton />}>
       <FavouritesContainer />
     </Suspense>
   );

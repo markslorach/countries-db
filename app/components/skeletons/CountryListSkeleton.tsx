@@ -1,4 +1,4 @@
-const HomeSkeleton = () => {
+const CountryListSkeleton = () => {
   return (
     <div className="px-4 md:container mt-10">
       <div className="flex flex-wrap md:flex-nowrap justify-between pb-10 gap-5">
@@ -18,4 +18,4 @@ const HomeSkeleton = () => {
   );
 };
 
-export default HomeSkeleton;
+export default CountryListSkeleton;
