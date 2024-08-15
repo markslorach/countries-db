@@ -11,8 +11,8 @@ import { SignOutButton } from "../shared/SignOutButton";
 import { UserRound } from "lucide-react";
 
 type Props = {
-  name: string | null;
-  email: string;
+  name: string | undefined;
+  email: string | undefined;
 };
 
 export default function UserDropdown({ name, email }: Props) {

@@ -1,17 +1,16 @@
+"use client"
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { getUser } from "@/lib/user";
-import { currentUser } from "@clerk/nextjs/server";
 import { SignInButton } from "./SignInButton";
 import UserDropdown from "../user/UserDropdown";
+import { useFetchUser } from "@/app/hooks/useFetchUser";
 
-const NavBar = async () => {
-  const user = await currentUser()
-  const userEmail = user?.emailAddresses[0]?.emailAddress as string;
-
-  if (user) await getUser();
+const NavBar = () => {
+  
+  const {user} = useFetchUser() as { user: { name: string; email: string } | null };
+  // const userEmail = user?.emailAddresses[0]?.emailAddress as string;
 
   return (
     <nav className="h-20 border-b border-gray-300/50 dark:border-gray-500/50 shadow-sm bg-white dark:bg-gray-700">
@@ -26,7 +25,7 @@ const NavBar = async () => {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserDropdown name={user?.firstName || null} email={userEmail} />
+            <UserDropdown name={user?.name} email={user?.email} />
           </SignedIn>
           <ThemeToggle />
         </div>
