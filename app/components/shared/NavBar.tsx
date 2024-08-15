@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
@@ -5,10 +6,15 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { SignInButton } from "./SignInButton";
 import UserDropdown from "../user/UserDropdown";
 import { useFetchUser } from "@/app/hooks/useFetchUser";
-import { getUser } from "@/lib/user";
 
-const NavBar = async () => {
-  const user = await getUser();
+const NavBar = () => {
+  type Props = {
+    name: string;
+    email: string;
+    isLoading: boolean;
+  } | null;
+
+  const { user } = useFetchUser() as { user: Props };
 
   return (
     <nav className="h-20 border-b border-gray-300/50 dark:border-gray-500/50 shadow-sm bg-white dark:bg-gray-700">
