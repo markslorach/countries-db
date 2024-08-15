@@ -8,7 +8,8 @@ export function useFetchUser() {
     async function fetchUser() {
       try {
         const response = await axios.get("/api/user");
-        setUser(response.data.user);
+        const data = response.data.user;
+        setUser(data);
       } catch (error) {
         console.log(error);
       }
