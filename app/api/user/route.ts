@@ -1,4 +1,3 @@
-// app/api/user/route.ts
 import { NextResponse } from 'next/server';
 import { currentUser } from "@clerk/nextjs/server";
 import prisma from "@/prisma/client";
@@ -7,7 +6,7 @@ export async function GET() {
   try {
     const clerkUser = await currentUser();
     if (!clerkUser) {
-      return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const email = clerkUser.emailAddresses[0].emailAddress as string;
@@ -24,7 +23,7 @@ export async function GET() {
 
     return NextResponse.json({ user });
   } catch (error) {
-    console.error(error);
-    return new NextResponse(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
+    console.log(error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

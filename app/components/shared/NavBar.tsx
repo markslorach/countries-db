@@ -9,8 +9,13 @@ import { useFetchUser } from "@/app/hooks/useFetchUser";
 
 const NavBar = () => {
   
-  const {user} = useFetchUser() as { user: { name: string; email: string } | null };
-  // const userEmail = user?.emailAddresses[0]?.emailAddress as string;
+  type Props = {
+    name: string;
+    email: string;
+    isLoading: boolean;
+  } | null;
+
+  const {user} = useFetchUser() as { user: Props};
 
   return (
     <nav className="h-20 border-b border-gray-300/50 dark:border-gray-500/50 shadow-sm bg-white dark:bg-gray-700">
