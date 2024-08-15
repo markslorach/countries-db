@@ -31,7 +31,7 @@ const NavBar = () => {
           <SignedIn>
             <UserDropdown name={user?.name} email={user?.email} />
           </SignedIn>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
       </div>
     </nav>
