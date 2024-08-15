@@ -12,7 +12,7 @@ import { UserRound } from "lucide-react";
 
 type Props = {
   name: string | null,
-  email: string
+  email: string | undefined
 } ;
 
 export default function UserDropdown({ name, email }: Props) {

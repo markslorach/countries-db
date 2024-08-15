@@ -9,7 +9,7 @@ import { useFetchUser } from "@/app/hooks/useFetchUser";
 
 const NavBar = () => {
   type Props = {
-    name: string;
+    name: string
     email: string;
     isLoading: boolean;
   } | null;
@@ -29,7 +29,7 @@ const NavBar = () => {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            {user && <UserDropdown name={user?.name} email={user?.email} />}
+           <UserDropdown name={user?.name ?? null} email={user?.email} />
           </SignedIn>
           {/* <ThemeToggle /> */}
         </div>
