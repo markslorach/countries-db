@@ -8,15 +8,15 @@ import {
 } from "@/components/ui/select";
 
 type Props = {
-  selectedRegion: string;
-  setSelectedRegion: (region: string) => void;
-  uniqueRegions: string[];
+  selectedRegion?: string; // Make these props optional
+  setSelectedRegion?: (region: string) => void;
+  uniqueRegions?: string[];
 };
 
 const RegionSelect = ({
-  selectedRegion,
-  setSelectedRegion,
-  uniqueRegions,
+  selectedRegion = "All",
+  setSelectedRegion = () => {},
+  uniqueRegions = [],
 }: Props) => {
   return (
     <Select value={selectedRegion} onValueChange={setSelectedRegion}>
