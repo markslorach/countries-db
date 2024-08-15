@@ -7,11 +7,13 @@ import CountryCard from "./CountryCard";
 import RegionSelect from "./RegionSelect";
 import SearchCountry from "./SearchCountry";
 import ScrollButton from "./shared/ScrollButton";
+import { usePathname } from "next/navigation";
 
 const CountryList = ({ data }: { data: Country[] }) => {
-
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("all");
+
+  const pathname = usePathname();
 
   const filteredCountries = data.filter((country) => {
     const searchMatch = country.name.common
@@ -43,7 +45,14 @@ const CountryList = ({ data }: { data: Country[] }) => {
         />
       </div>
 
-      {!filteredCountries.length && <p>No countries found</p>}
+      {!filteredCountries.length && (
+        <>
+          {pathname === "/" && <p>No countries found</p>}
+          {pathname === "/favourite-countries" && (
+            <p>Add a country to your favourites to see it here.</p>
+          )}
+        </>
+      )}
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredCountries.map((country) => (

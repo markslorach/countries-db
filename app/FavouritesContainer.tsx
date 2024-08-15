@@ -31,11 +31,7 @@ const FavouritesContainer = async () => {
         <p>Please sign in to see your favourite countries.</p>
       </SignedOut>
       <SignedIn>
-        {!favouriteCountries.length ? (
-          <p>Add a country to your favourites to see it here.</p>
-        ) : (
-          <CountryList data={alphabeticalOrder(favouriteCountries)} />
-        )}
+        <CountryList data={alphabeticalOrder(favouriteCountries)} />
       </SignedIn>
     </div>
   );
