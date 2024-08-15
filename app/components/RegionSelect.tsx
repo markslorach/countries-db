@@ -14,7 +14,7 @@ type Props = {
 };
 
 const RegionSelect = ({
-  selectedRegion = "All",
+  selectedRegion = "all",
   setSelectedRegion = () => {},
   uniqueRegions = [],
 }: Props) => {
