@@ -17,7 +17,7 @@ A simple application to view information on the countries of the world. Based on
 * Fully mobile responsive
 
 ## Working On
-- Scrolling pagination for countries list
+- Setting up a Clerk webhook to sync data with db
 
 ## Links
 Deployed Link - https://countriesdb.vercel.app \
