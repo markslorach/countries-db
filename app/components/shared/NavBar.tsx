@@ -28,11 +28,9 @@ const NavBar = () => {
           <SignedOut>
             <SignInButton />
           </SignedOut>
-          {user && (
-            <SignedIn>
-              <UserDropdown name={user?.name} email={user?.email} />
-            </SignedIn>
-          )}
+          <SignedIn>
+            {user && <UserDropdown name={user?.name} email={user?.email} />}
+          </SignedIn>
           {/* <ThemeToggle /> */}
         </div>
       </div>
