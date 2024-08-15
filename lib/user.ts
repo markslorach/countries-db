@@ -9,9 +9,18 @@ export async function getUser() {
 
     if (!clerkUser) return;
 
-    const user = await prisma.user.findUnique({
+    let user = await prisma.user.findUnique({
       where: { email },
     });
+
+    if(!user) {
+      user = await prisma.user.create({
+        data: {
+          email,
+          name: clerkUser.firstName,
+        },
+      });
+    }
 
     return user;
   } catch (error) {
