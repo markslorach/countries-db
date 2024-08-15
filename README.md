@@ -3,7 +3,7 @@
 A simple application to view information on the countries of the world. Based on the [Frontend Mentor REST Countries challenge](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
 ## Tech Stack
-- **Frontend:** Next.js, TypeScript, Axios, Tailwind, Shadcn/ui
+- **Frontend:** Next.js, TypeScript, Tailwind, Shadcn/ui
 - **Backend:** Prisma ORM, Neon PortgreSQL
 - **Authentication**: Clerk Auth
 
