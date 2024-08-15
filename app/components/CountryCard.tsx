@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Country } from "../types";
+import { Country } from "../_types/types";
 
 const CountryCard = ({ country }: { country: Country }) => {
   return (

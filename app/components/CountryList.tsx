@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Country } from "../types";
+import { Country } from "../_types/types";
 import { removeDuplicates } from "@/utils/helpers";
 import { motion } from "framer-motion";
 import CountryCard from "./CountryCard";

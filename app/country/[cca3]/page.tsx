@@ -2,7 +2,7 @@ import Link from "next/link";
 import BackButton from "@/app/components/shared/BackButton";
 import { getCountry } from "@/lib/countries";
 import { Button } from "@/components/ui/button";
-import { Country } from "@/app/types";
+import { Country } from "@/app/_types/types";
 import { notFound } from "next/navigation";
 import AddToFavourites from "@/app/components/user/AddToFavouritesForm";
 import { getFavouriteCountries } from "@/lib/user";
