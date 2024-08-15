@@ -11,7 +11,7 @@ export const SignOutButton = () => {
       className="w-full flex"
       onClick={() =>
         signOut({
-          redirectUrl: pathname === "/favourite-countries" ? "/" : pathname,
+          redirectUrl: pathname,
         })
       }
     >
