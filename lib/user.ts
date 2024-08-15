@@ -13,14 +13,14 @@ export async function getUser() {
       where: { email },
     });
 
-    if(!user) {
-      user = await prisma.user.create({
-        data: {
-          email,
-          name: clerkUser.firstName,
-        },
-      });
-    }
+    // if(!user) {
+    //   user = await prisma.user.create({
+    //     data: {
+    //       email,
+    //       name: clerkUser.firstName,
+    //     },
+    //   });
+    // }
 
     return user;
   } catch (error) {
