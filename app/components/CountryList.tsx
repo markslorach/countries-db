@@ -45,7 +45,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
         />
       </div>
 
-      <h1 className="text-xl font-semibold ml-1 mt-10 mb-5">
+      <h1 className="text-xl font-semibold mt-10 mb-5">
         {pathname === "/favourite-countries"
           ? "Favourite Countries"
           : "Countries"}
