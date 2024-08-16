@@ -6,8 +6,10 @@ import { alphabeticalOrder } from "@/utils/helpers";
 import CountryList from "./components/CountryList";
 import BackButton from "./components/shared/BackButton";
 import Link from "next/link";
+import HomeButton from "./components/shared/HomeButton";
 
 const FavouritesContainer = async () => {
+
   const { userId } = auth();
 
   let favouriteCountries = [];
@@ -30,7 +32,7 @@ const FavouritesContainer = async () => {
   return (
     <div>
       <SignedOut>
-        <BackButton />
+        {userId ? <BackButton /> : <HomeButton/>}
         <p className="mt-10">
           Please{" "}
           <Link href="/sign-in" className="text-blue-500">
