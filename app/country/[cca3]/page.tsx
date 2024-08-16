@@ -126,7 +126,7 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
                 >
                   <Button
                     variant="outline"
-                    className="shadow-smrounded-lg px-3 dark:bg-gray-700 dark:border-gray-500/50"
+                    className="shadow-sm rounded-lg px-3 dark:bg-gray-700 dark:border-gray-500/50"
                   >
                     {borderCountry.name.common}
                   </Button>
