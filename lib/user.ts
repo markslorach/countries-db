@@ -1,7 +1,7 @@
 import prisma from "@/prisma/client";
 import { currentUser } from "@clerk/nextjs/server";
 
-// Gets logged in user from the db
+// Get logged in user from the db
 export async function getUser() {
   try {
     const clerkUser = await currentUser();

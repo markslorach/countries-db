@@ -13,11 +13,10 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
 
   if (!country) notFound();
 
-  const { countries = [], error } = await getFavouriteCountries();
+  const { countries = [] } = await getFavouriteCountries()
 
   return (
     <>
-      {error && <div>{error}</div>}
       <CountryDetails
         userId={userId}
         country={country}
