@@ -2,14 +2,15 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { SignInButton } from "./SignInButton";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import UserDropdown from "../user/UserDropdown";
 import { useFetchUser } from "@/app/hooks/useFetchUser";
+import { Button } from "@/components/ui/button";
+import { LogIn } from "lucide-react";
 
 const NavBar = () => {
   type Props = {
-    name: string
+    name: string;
     email: string;
     isLoading: boolean;
   } | null;
@@ -26,10 +27,18 @@ const NavBar = () => {
 
         <div className="flex items-center space-x-1">
           <SignedOut>
-            <SignInButton />
+            <SignInButton>
+              <Button
+                variant="ghost"
+                size="icon"
+                className=" dark:bg-gray-700 dark:border-gray-500/50"
+              >
+                <LogIn className="w-6 h-6" />
+              </Button>
+            </SignInButton>
           </SignedOut>
           <SignedIn>
-           <UserDropdown name={user?.name ?? null} email={user?.email} />
+            <UserDropdown name={user?.name ?? null} email={user?.email} />
           </SignedIn>
           {/* <ThemeToggle /> */}
         </div>
