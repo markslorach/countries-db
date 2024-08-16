@@ -34,8 +34,8 @@ const CountryList = ({ data }: { data: Country[] }) => {
   };
 
   return (
-    <>
-      <div className="flex flex-wrap md:flex-nowrap justify-between pb-10 gap-5">
+    <div className="space-y-10">
+      <div className="flex flex-wrap md:flex-nowrap justify-between gap-5">
         <SearchCountry search={search} setSearch={setSearch} />
 
         <RegionSelect
@@ -44,6 +44,12 @@ const CountryList = ({ data }: { data: Country[] }) => {
           uniqueRegions={uniqueRegions}
         />
       </div>
+
+      <h1 className="text-xl font-semibold ml-1">
+        {pathname === "/favourite-countries"
+          ? "Favourite Countries"
+          : "Countries"}
+      </h1>
 
       {!filteredCountries.length && (
         <>
@@ -68,7 +74,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
         ))}
       </ul>
       <ScrollButton />
-    </>
+    </div>
   );
 };
 

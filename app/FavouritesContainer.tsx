@@ -28,7 +28,7 @@ const FavouritesContainer = async () => {
   }
 
   return (
-    <div className="px-4 md:container mt-10">
+    <div>
       <SignedOut>
         <BackButton />
         <p className="mt-10">

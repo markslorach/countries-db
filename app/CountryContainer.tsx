@@ -8,7 +8,7 @@ export default async function CountryContainer() {
   const countries = alphabeticalOrder(data);
 
   return (
-    <main className="px-4 md:container mt-10">
+    <main>
       {error && <p>{error}</p>}
       {!error && <CountryList data={countries} />}
     </main>

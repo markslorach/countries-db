@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import { getFavouriteCountries } from "@/lib/user";
 import { auth } from "@clerk/nextjs/server";
 
-export const revalidate = 0
+export const revalidate = 0;
 
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   const { userId } = auth();
@@ -43,12 +43,10 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   }
 
   return (
-    <div className="px-4 md:container">
-      <div className="my-10">
-        <BackButton />
-      </div>
+    <div>
+      <BackButton />
 
-      <section className="grid md:grid-cols-2 gap-10 md:gap-20">
+      <section className="grid md:grid-cols-2 gap-10 md:gap-20 mt-10">
         <img
           className="object-cover w-full rounded-lg shadow-sm col-span-1"
           src={country.flags.png}

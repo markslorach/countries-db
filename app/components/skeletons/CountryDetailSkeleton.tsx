@@ -2,10 +2,8 @@ import BackButton from "../shared/BackButton";
 
 const CountryDetailSkeleton = () => {
   return (
-    <div className="px-4 md:container">
-      <div className="my-10">
-        <BackButton />
-      </div>
+    <div className="space-y-10">
+      <BackButton />
 
       <div className="grid md:grid-cols-2 gap-10 md:gap-20">
         <div className="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm col-span-1 aspect-video animate-pulse"></div>
