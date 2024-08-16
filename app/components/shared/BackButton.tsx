@@ -1,33 +1,20 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-// import { headers } from "next/headers";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const BackButton = () => {
-  // const headersList = headers();
-  // const referer = headersList.get("referer");
-
-  // let href = "/";
-
-  // if (
-  //   referer === "http://localhost:3000/favourite-countries" ||
-  //   referer === "https://countriesdb.vercel.app/favourite-countries"
-  // ) {
-  //   href = "/favourite-countries";
-  // } else if (referer === null || referer === "null") {
-  //   href = "/";
-  // }
-
+  const router = useRouter();
+  
   return (
-    <Link href={"/"}>
-      <Button
-        variant="outline"
-        className="shadow-sm h-14 rounded-lg dark:bg-gray-700 dark:border-gray-500/50"
-      >
-        <ArrowLeft className="mr-1.5 w-5 h-5" />
-        Home
-      </Button>
-    </Link>
+    <Button
+      onClick={router.back}
+      variant="outline"
+      className="shadow-sm h-14 rounded-lg dark:bg-gray-700 dark:border-gray-500/50"
+    >
+      <ArrowLeft className="mr-1.5 w-5 h-5" />
+      Back
+    </Button>
   );
 };
 
