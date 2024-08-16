@@ -34,7 +34,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
   };
 
   return (
-    <div className="space-y-10">
+    <div>
       <div className="flex flex-wrap md:flex-nowrap justify-between gap-5">
         <SearchCountry search={search} setSearch={setSearch} />
 
@@ -45,7 +45,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
         />
       </div>
 
-      <h1 className="text-xl font-semibold ml-1">
+      <h1 className="text-xl font-semibold ml-1 mt-10 mb-5">
         {pathname === "/favourite-countries"
           ? "Favourite Countries"
           : "Countries"}
