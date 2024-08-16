@@ -9,7 +9,10 @@ const BackButton = () => {
 
   let href = "/";
 
-  if (referer === "http://localhost:3000/favourite-countries") {
+  if (
+    referer === "http://localhost:3000/favourite-countries" ||
+    referer === "https://countriesdb.vercel.app/favourite-countries"
+  ) {
     href = "/favourite-countries";
   } else if (referer === null || referer === "null") {
     href = "/";
