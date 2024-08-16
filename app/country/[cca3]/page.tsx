@@ -8,6 +8,8 @@ import { notFound } from "next/navigation";
 import { getFavouriteCountries } from "@/lib/user";
 import { auth } from "@clerk/nextjs/server";
 
+export const revalidate = 0
+
 const CountryPage = async ({ params }: { params: { cca3: string } }) => {
   const { userId } = auth();
 
