@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import CountryContainer from "./CountryContainer";
 import CountryListSkeleton from "./components/skeletons/CountryListSkeleton";
+import CountriesContainer from "./CountriesContainer";
 
 export default function Home() {
   return (
     <Suspense fallback={<CountryListSkeleton/>}>
-      <CountryContainer />
+      <CountriesContainer />
     </Suspense>
   );
 }

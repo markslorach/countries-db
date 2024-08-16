@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useUser } from "@clerk/nextjs";
+import axios from "axios";
 
 export function useFetchUser() {
   const [user, setUser] = useState(null);
