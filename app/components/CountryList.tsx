@@ -3,18 +3,11 @@ import { useState } from "react";
 import { Country } from "../_types/types";
 import { removeDuplicates } from "@/utils/helpers";
 import { motion } from "framer-motion";
-// import CountryCard from "./CountryCard";
+import CountryCard from "./CountryCard";
 import RegionSelect from "./RegionSelect";
 import SearchCountry from "./SearchCountry";
 import ScrollButton from "./shared/ScrollButton";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
-import CountryListSkeleton from "./skeletons/CountryListSkeleton";
-
-const CountryCard = dynamic(() => import("@/app/components/CountryCard"), {
-  ssr: false,
-  loading: () => <CountryListSkeleton/>,
-});
 
 const CountryList = ({ data }: { data: Country[] }) => {
   const [search, setSearch] = useState("");
