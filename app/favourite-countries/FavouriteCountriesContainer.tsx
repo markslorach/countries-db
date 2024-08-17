@@ -1,3 +1,4 @@
+"use client";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { alphabeticalOrder } from "@/utils/helpers";
 import CountryList from "../components/CountryList";
@@ -5,6 +6,7 @@ import BackButton from "../components/shared/BackButton";
 import Link from "next/link";
 import HomeButton from "../components/shared/HomeButton";
 import { Country } from "../_types/types";
+import { useOptimistic } from "react";
 
 type Props = {
   userId: string | null;
@@ -12,6 +14,17 @@ type Props = {
 };
 
 const FavouriteCountriesContainer = ({ userId, favouriteCountries }: Props) => {
+  const [optimisticFavourites, setOptimisticFavourites] =
+    useOptimistic(favouriteCountries);
+
+  const handleRemoveFavourite = (favouriteCountry: Country) => {
+    setOptimisticFavourites((optimisticFavourites) =>
+      optimisticFavourites.filter(
+        (country) => country.cca3 !== favouriteCountry.cca3
+      )
+    );
+  };
+
   return (
     <div>
       <SignedOut>
@@ -25,7 +38,10 @@ const FavouriteCountriesContainer = ({ userId, favouriteCountries }: Props) => {
         </p>
       </SignedOut>
       <SignedIn>
-        <CountryList data={alphabeticalOrder(favouriteCountries)} />
+        <CountryList
+          data={alphabeticalOrder(optimisticFavourites)}
+          removeFavourite={handleRemoveFavourite}
+        />
       </SignedIn>
     </div>
   );

@@ -9,7 +9,12 @@ import SearchCountry from "./SearchCountry";
 import ScrollButton from "./shared/ScrollButton";
 import { usePathname } from "next/navigation";
 
-const CountryList = ({ data }: { data: Country[] }) => {
+type Props = {
+  data: Country[];
+  removeFavourite: (country: Country) => void;
+};
+
+const CountryList = ({ data, removeFavourite }: Props) => {
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("all");
 
@@ -69,7 +74,7 @@ const CountryList = ({ data }: { data: Country[] }) => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <CountryCard country={country} />
+            <CountryCard country={country} removeFavourite={removeFavourite} />
           </motion.li>
         ))}
       </ul>
