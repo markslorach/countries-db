@@ -1,7 +1,7 @@
 import { getCountry } from "@/lib/countries";
 import { getFavouriteCountries } from "@/lib/user";
 import { auth } from "@clerk/nextjs/server";
-import FavouritesContainer from "./FavouritesContainer";
+import FavouriteCountriesContainer from "./FavouriteCountriesContainer";
 
 const FavouriteCountriesPage = async () => {
   const { userId } = auth();
@@ -24,7 +24,7 @@ const FavouriteCountriesPage = async () => {
   }
 
   return (
-    <FavouritesContainer
+    <FavouriteCountriesContainer
       userId={userId}
       favouriteCountries={favouriteCountries}
     />

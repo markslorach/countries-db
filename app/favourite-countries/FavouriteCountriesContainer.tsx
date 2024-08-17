@@ -11,7 +11,7 @@ type Props = {
   favouriteCountries: Country[];
 };
 
-const FavouritesContainer = ({ userId, favouriteCountries }: Props) => {
+const FavouriteCountriesContainer = ({ userId, favouriteCountries }: Props) => {
   return (
     <div>
       <SignedOut>
@@ -31,4 +31,4 @@ const FavouritesContainer = ({ userId, favouriteCountries }: Props) => {
   );
 };
 
-export default FavouritesContainer;
+export default FavouriteCountriesContainer;
