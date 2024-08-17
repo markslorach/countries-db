@@ -2,16 +2,21 @@ import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 
 const AddToFavouritesButton = ({ isFavourite }: { isFavourite: boolean }) => {
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <button
-      className="-mt-0.5"
       type="submit"
+      onClick={handleButtonClick}
       aria-label="Add country to favourites"
+      className="-mt-0.5"
     >
       {isFavourite ? (
-        <StarSolid className=" w-8 h-8 text-blue-500" />
+        <StarSolid className=" w-7 h-7 text-blue-500" />
       ) : (
-        <StarOutline className=" w-8 h-8 text-blue-500" />
+        <StarOutline className=" w-7 h-7 text-blue-500" />
       )}
     </button>
   );

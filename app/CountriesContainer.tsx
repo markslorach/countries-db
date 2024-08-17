@@ -5,12 +5,10 @@ import CountryList from "./components/CountryList";
 export default async function CountryContainer() {
   const { data = [], error } = await getCountries();
 
-  const countries = alphabeticalOrder(data);
-
   return (
     <main>
       {error && <p>{error}</p>}
-      {!error && <CountryList data={countries} />}
+      {!error && <CountryList data={alphabeticalOrder(data)} />}
     </main>
   );
 }
