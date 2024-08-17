@@ -4,9 +4,9 @@ import CountryListSkeleton from "../components/skeletons/CountryListSkeleton";
 
 const FavouriteCountriesPage = () => {
   return (  
-      <Suspense fallback={<CountryListSkeleton />}>
+      // <Suspense fallback={<CountryListSkeleton />}>
         <FavouritesContainer />
-      </Suspense>
+    
   );
 };
 
