@@ -6,7 +6,7 @@ import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 type Props = {
-  removeFavourite: (country: Country) => void;
+  removeFavourite?: (country: Country) => void;
   country: Country;
 };
 
@@ -14,8 +14,10 @@ const RemoveFavouriteForm = ({ removeFavourite, country }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   async function action() {
-    removeFavourite(country);
-    await removeFavouriteCountryAction(country.cca3);
+    if (removeFavourite) {
+      removeFavourite(country);
+      await removeFavouriteCountryAction(country.cca3);
+    }
   }
 
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {

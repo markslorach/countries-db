@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 
 type Props = {
   data: Country[];
-  removeFavourite: (country: Country) => void;
+  removeFavourite?: (country: Country) => void;
 };
 
 const CountryList = ({ data, removeFavourite }: Props) => {
