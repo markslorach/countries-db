@@ -33,10 +33,10 @@ const CountryList = ({ data, removeFavourite }: Props) => {
 
   const uniqueRegions = removeDuplicates(data.map((country) => country.region));
 
-  const cardVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.5 } },
-  };
+  // const cardVariants = {
+  //   hidden: { opacity: 0 },
+  //   visible: { opacity: 1, transition: { duration: 0.5 } },
+  // };
 
   return (
     <div>
@@ -69,7 +69,7 @@ const CountryList = ({ data, removeFavourite }: Props) => {
         {filteredCountries.map((country) => (
           <motion.li
             key={country.cca3}
-            variants={cardVariants}
+            // variants={cardVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
