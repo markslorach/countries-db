@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Country } from "./_types/types";
-import AddToFavourites from "./components/user/AddToFavouritesForm";
 import { Button } from "@/components/ui/button";
-import BackButton from "./components/shared/BackButton";
+
 import { getCountry } from "@/lib/countries";
 import { FavouriteCountry } from "@prisma/client";
+import { Country } from "@/app/_types/types";
+import BackButton from "@/app/components/shared/BackButton";
+import AddToFavourites from "@/app/components/user/AddToFavouritesForm";
 
 type Props = {
   userId: string | null;

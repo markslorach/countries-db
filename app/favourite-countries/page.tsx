@@ -1,12 +1,33 @@
-import { Suspense } from "react";
-import FavouritesContainer from "../FavouritesContainer";
-import CountryListSkeleton from "../components/skeletons/CountryListSkeleton";
+import { getCountry } from "@/lib/countries";
+import { getFavouriteCountries } from "@/lib/user";
+import { auth } from "@clerk/nextjs/server";
+import FavouritesContainer from "./FavouritesContainer";
 
-const FavouriteCountriesPage = () => {
-  return (  
-      <Suspense fallback={<CountryListSkeleton />}>
-        <FavouritesContainer />
-      </Suspense>
+const FavouriteCountriesPage = async () => {
+  const { userId } = auth();
+
+  let favouriteCountries = [];
+
+  if (userId) {
+    const { countries = [], error } = await getFavouriteCountries();
+
+    if (error) return <div className="px-4 md:container mt-10">{error}</div>;
+
+    if (countries.length > 0) {
+      favouriteCountries = await Promise.all(
+        countries.map(async (country) => {
+          const { data } = await getCountry(country.country);
+          return data;
+        })
+      );
+    }
+  }
+
+  return (
+    <FavouritesContainer
+      userId={userId}
+      favouriteCountries={favouriteCountries}
+    />
   );
 };
 
