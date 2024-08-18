@@ -14,9 +14,9 @@ export function useFetchUser() {
       }
 
       try {
-        const response = await axios.get("/api/user");
-        const data = response.data.user;
-        setUser(data);
+        const response = await fetch("/api/user");
+        const data = await response.json();
+        setUser(data.user);
       } catch (error) {
         console.log(error);
       }
