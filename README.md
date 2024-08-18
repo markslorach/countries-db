@@ -33,5 +33,6 @@ Mark Slorach - hello@markslorach.com
 
 ## Screenshots
 ![SCR-20240816-lkck](https://github.com/user-attachments/assets/73e918fa-2e16-47e0-8518-1fd901d30947)
-![SCR-20240816-lkom](https://github.com/user-attachments/assets/332befe4-737f-4d92-a181-155aa0745934)
+![SCR-20240818-lbgv](https://github.com/user-attachments/assets/2b5d5824-8cc8-46ee-9b87-3486a1c53f67)
+![SCR-20240818-lbep](https://github.com/user-attachments/assets/92c55179-0bbd-449c-b067-32e034ddd6d5)
 ![SCR-20240816-lksq](https://github.com/user-attachments/assets/8bc40ac2-4a29-443e-84f6-50934b1ad082)
