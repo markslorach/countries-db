@@ -5,12 +5,12 @@ import { addFavouriteCountryAction, removeFavouriteCountryAction } from "@/app/a
 
 type Props = {
   countryCode: string;
-  isCountryInUserFavourites: boolean;
+  isFavourite: boolean;
 };
 
-const AddToFavourites = ({ countryCode, isCountryInUserFavourites }: Props) => {
+const AddToFavourites = ({ countryCode, isFavourite }: Props) => {
   const [optimisticFavourite, setOptimisticFavourite] = useOptimistic(
-    isCountryInUserFavourites
+    isFavourite
   );
 
   async function action(formData: FormData) {
@@ -26,7 +26,7 @@ const AddToFavourites = ({ countryCode, isCountryInUserFavourites }: Props) => {
   }
 
   return (
-    <form action={action}>
+    <form action={action} className="flex">
       <input type="hidden" name="countryCode" value={countryCode} />
       <AddToFavouritesButton isFavourite={optimisticFavourite} />
     </form>

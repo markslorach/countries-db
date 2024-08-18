@@ -8,13 +8,16 @@ import RegionSelect from "./RegionSelect";
 import SearchCountry from "./SearchCountry";
 import ScrollButton from "./shared/ScrollButton";
 import { usePathname } from "next/navigation";
+import { FavouriteCountry } from "@prisma/client";
 
 type Props = {
   data: Country[];
   removeFavourite?: (country: Country) => void;
+  countries?: FavouriteCountry[];
+  userId?: string | null;
 };
 
-const CountryList = ({ data, removeFavourite }: Props) => {
+const CountryList = ({ data, removeFavourite, countries, userId }: Props) => {
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("all");
 
@@ -74,7 +77,12 @@ const CountryList = ({ data, removeFavourite }: Props) => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <CountryCard country={country} removeFavourite={removeFavourite} />
+            <CountryCard
+              country={country}
+              removeFavourite={removeFavourite}
+              countries={countries}
+              userId={userId}
+            />
           </motion.li>
         ))}
       </ul>

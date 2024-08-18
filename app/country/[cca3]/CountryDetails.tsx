@@ -11,14 +11,10 @@ type Props = {
   userId: string | null;
   country: Country;
   countries: { countries: FavouriteCountry[] };
+  isFavourite: boolean;
 };
 
-const CountryDetails = async ({ userId, country, countries }: Props) => {
-  const isCountryInUserFavourites =
-    countries?.countries
-      ?.map((country) => country.country)
-      .includes(country.cca3) ?? false;
-
+const CountryDetails = async ({ userId, country, isFavourite }: Props) => {
   const nativeName = country.name.nativeName
     ? Object.values(country.name.nativeName)[0]
     : { official: "n/a", common: "n/a" };
@@ -61,7 +57,7 @@ const CountryDetails = async ({ userId, country, countries }: Props) => {
             {userId && (
               <AddToFavourites
                 countryCode={country.cca3}
-                isCountryInUserFavourites={isCountryInUserFavourites}
+                isFavourite={isFavourite}
               />
             )}
           </div>

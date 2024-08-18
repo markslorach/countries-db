@@ -15,11 +15,16 @@ const CountryPage = async ({ params }: { params: { cca3: string } }) => {
 
   const { countries = [] } = await getFavouriteCountries();
 
+  const isFavouriteCountry =
+    countries?.map((country) => country.country).includes(country.cca3) ??
+    false;
+
   return (
     <CountryDetails
       userId={userId}
       country={country}
       countries={{ countries }}
+      isFavourite={isFavouriteCountry}
     />
   );
 };

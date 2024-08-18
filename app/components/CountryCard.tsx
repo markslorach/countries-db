@@ -5,14 +5,27 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import RemoveFavouriteForm from "./user/RemoveFavouriteForm";
 import { usePathname } from "next/navigation";
+import { FavouriteCountry } from "@prisma/client";
+import AddToFavourites from "./user/AddToFavouritesForm";
 
 type Props = {
   country: Country;
   removeFavourite?: (country: Country) => void;
+  countries?: FavouriteCountry[];
+  userId?: string | null;
 };
 
-const CountryCard = ({ country, removeFavourite }: Props) => {
+const CountryCard = ({
+  country,
+  removeFavourite,
+  countries,
+  userId,
+}: Props) => {
   const pathname = usePathname();
+
+  const isFavouriteCountry =
+    countries?.map((country) => country.country).includes(country.cca3) ??
+    false;
 
   return (
     <Link href={`/country/${country.cca3}`}>
@@ -27,17 +40,17 @@ const CountryCard = ({ country, removeFavourite }: Props) => {
           />
         </AspectRatio>
 
-        <div className="space-y-2">
-          <h2 className="font-semibold text-lg line-clamp-1">
+        <div>
+          <h2 className="font-semibold text-lg line-clamp-1 mb-4">
             {country.name.common}
           </h2>
 
-          <p>
+          <p className="mb-2">
             <span className="font-semibold">Population:</span>{" "}
             {country.population.toLocaleString()}
           </p>
 
-          <p>
+          <p className="mb-1.5">
             <span className="font-semibold">Region:</span> {country.region}
           </p>
 
@@ -48,12 +61,18 @@ const CountryCard = ({ country, removeFavourite }: Props) => {
               </span>{" "}
               {country.capital ? country.capital.join(", ") : "No Capital"}
             </p>
-            {pathname === "/favourite-countries" && (
+            {(pathname === "/favourite-countries" && (
               <RemoveFavouriteForm
                 removeFavourite={removeFavourite}
                 country={country}
               />
-            )}
+            )) ||
+              (userId && pathname === "/" && (
+                <AddToFavourites
+                  countryCode={country.cca3}
+                  isFavourite={isFavouriteCountry}
+                />
+              ))}
           </div>
         </div>
       </article>

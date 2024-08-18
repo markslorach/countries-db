@@ -11,7 +11,6 @@ const AddToFavouritesButton = ({ isFavourite }: { isFavourite: boolean }) => {
       type="submit"
       onClick={handleButtonClick}
       aria-label="Add country to favourites"
-      className="-mt-0.5"
     >
       {isFavourite ? (
         <StarSolid className=" w-7 h-7 text-blue-500" />
