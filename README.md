@@ -16,10 +16,6 @@ A simple application to view information on the countries of the world. Based on
 * Logged in users can add countries to favourites
 * Fully mobile responsive
 
-## Working On
-- Setting up a Clerk webhook to sync data with db
-- Improved skeletons with [react loading skeleton](https://www.npmjs.com/package/react-loading-skeleton)
-
 ## Links
 Deployed Link - https://countriesdb.vercel.app \
 Project Link - https://github.com/markslorach/countries-db.git
