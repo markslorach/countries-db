@@ -14,17 +14,10 @@ type Props = {
 };
 
 const RegionSelect = ({
-  selectedRegion,
+  selectedRegion = "all",
   setSelectedRegion,
   uniqueRegions,
 }: Props) => {
-
-  const handleItemClick = (e: React.MouseEvent<HTMLDivElement>, region: string) => {
-    e.stopPropagation(); 
-    setSelectedRegion(region);
-    setTimeout(() => {
-    }, 100); 
-  };
   return (
     <Select value={selectedRegion} onValueChange={setSelectedRegion}>
       <SelectTrigger className="md:w-52 h-14 px-5 shadow-sm dark:bg-gray-700 dark:border-gray-500/50">
@@ -34,7 +27,7 @@ const RegionSelect = ({
         <SelectGroup>
           <SelectItem value="all">All Regions</SelectItem>
           {uniqueRegions.sort().map((region, idx) => (
-            <SelectItem onClick={(e) => handleItemClick(e, region)} key={idx} value={region}>
+            <SelectItem key={idx} value={region}>
               {region}
             </SelectItem>
           ))}

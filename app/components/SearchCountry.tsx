@@ -1,8 +1,8 @@
 import { Input } from "@/components/ui/input";
 
 type Props = {
-  search?: string; 
-  setSearch?: (search: string) => void;
+  search: string; 
+  setSearch: (search: string) => void;
 };
 
 const SearchCountry = ({ search = "", setSearch = () => {} }: Props) => {
