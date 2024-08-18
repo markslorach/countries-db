@@ -16,7 +16,7 @@ const CountryListSkeleton = () => {
           >
             <div className="bg-gray-300 dark:bg-gray-600 aspect-video rounded-lg animate-pulse"></div>
             <div>
-              <div className=" h-6 rounded-lg animate-pulse bg-gray-300 dark:bg-gray-600 mb-2"></div>
+              <div className=" h-6 rounded-lg animate-pulse bg-gray-300 dark:bg-gray-600 mb-3"></div>
               <div className="space-y-2">
                 {[...Array(3)].map((_, index) => (
                   <div

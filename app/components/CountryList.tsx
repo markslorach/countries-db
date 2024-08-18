@@ -36,11 +36,6 @@ const CountryList = ({ data, removeFavourite, countries, userId }: Props) => {
 
   const uniqueRegions = removeDuplicates(data.map((country) => country.region));
 
-  // const cardVariants = {
-  //   hidden: { opacity: 0 },
-  //   visible: { opacity: 1, transition: { duration: 0.5 } },
-  // };
-
   return (
     <div>
       <div className="flex flex-wrap md:flex-nowrap justify-between gap-5">
@@ -70,20 +65,14 @@ const CountryList = ({ data, removeFavourite, countries, userId }: Props) => {
 
       <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredCountries.map((country) => (
-          <motion.li
-            key={country.cca3}
-            // variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <li key={country.cca3}>
             <CountryCard
               country={country}
               removeFavourite={removeFavourite}
               countries={countries}
               userId={userId}
             />
-          </motion.li>
+          </li>
         ))}
       </ul>
       <ScrollButton />
