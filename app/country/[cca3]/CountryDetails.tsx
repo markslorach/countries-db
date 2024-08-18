@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
 import { getCountry } from "@/lib/countries";
 import { FavouriteCountry } from "@prisma/client";
 import { Country } from "@/app/_types/types";
