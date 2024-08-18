@@ -26,7 +26,7 @@ const AddToFavourites = ({ countryCode, isFavourite }: Props) => {
   }
 
   return (
-    <form action={action} className="flex">
+    <form action={action} className="flex h-fit">
       <input type="hidden" name="countryCode" value={countryCode} />
       <AddToFavouritesButton isFavourite={optimisticFavourite} />
     </form>
