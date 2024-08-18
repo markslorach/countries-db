@@ -36,7 +36,7 @@ const CountryCard = ({
             height={200}
             src={country.flags.png}
             alt={country.name.common}
-            className="object-cover w-full h-full rounded-lg shadow-sm"
+            className="object-cover w-full h-full rounded-lg shadow-sm border border-gray-300/50 dark:border-gray-500/50"
           />
         </AspectRatio>
 
