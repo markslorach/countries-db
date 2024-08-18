@@ -32,7 +32,8 @@ p/w: test123
 Mark Slorach - hello@markslorach.com
 
 ## Screenshots
-![SCR-20240816-lkck](https://github.com/user-attachments/assets/73e918fa-2e16-47e0-8518-1fd901d30947)
-![SCR-20240818-lbgv](https://github.com/user-attachments/assets/2b5d5824-8cc8-46ee-9b87-3486a1c53f67)
-![SCR-20240818-lbep](https://github.com/user-attachments/assets/92c55179-0bbd-449c-b067-32e034ddd6d5)
-<img width="1721" alt="SCR-20240818-lbut" src="https://github.com/user-attachments/assets/b97e68d1-12d8-4ce0-8491-9191469c4f0e">
+![SCR-20240818-lczy](https://github.com/user-attachments/assets/fbae917d-81e0-4b99-a683-5681675ec977)
+![SCR-20240818-ldcw](https://github.com/user-attachments/assets/07ddb14c-a791-4a87-9b07-5a300cf1e853)
+![SCR-20240818-ldjr](https://github.com/user-attachments/assets/381f09b9-d5d8-4a94-b685-299bdfaafd61)
+![SCR-20240818-ldlg](https://github.com/user-attachments/assets/c7fc12ec-a881-4e1b-95cf-1cb9aa1f631f)
+![SCR-20240818-ldmx](https://github.com/user-attachments/assets/c26cd1bd-603b-40f0-9a3f-0ab636343fb6)
