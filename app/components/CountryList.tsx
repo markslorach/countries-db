@@ -63,7 +63,7 @@ const CountryList = ({ data, removeFavourite, countries, userId }: Props) => {
         </>
       )}
 
-      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {filteredCountries.map((country) => (
           <li key={country.cca3}>
             <CountryCard
