@@ -2,7 +2,7 @@ import HomeButton from "@/app/components/shared/HomeButton";
 
 const NotFound = () => {
   return (
-    <div className="mt-10 space-y-10">
+    <div className="space-y-10">
       <HomeButton />
       <p>Page not found</p>
     </div>
