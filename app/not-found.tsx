@@ -1,9 +1,9 @@
-import BackButton from "./components/shared/BackButton";
+import HomeButton from "./components/shared/HomeButton";
 
 const NotFound = () => {
   return (
     <div className="px-4 md:container mt-10 space-y-10">
-      <BackButton />
+      <HomeButton />
       <p>Page not found</p>
     </div>
   );
