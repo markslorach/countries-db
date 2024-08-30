@@ -2,16 +2,21 @@ import { getCountry } from "@/lib/countries";
 import { getFavouriteCountries } from "@/lib/user";
 import { auth } from "@clerk/nextjs/server";
 import FavouriteCountriesContainer from "./FavouriteCountriesContainer";
+import { redirect } from "next/navigation";
 
 const FavouriteCountriesPage = async () => {
   const { userId } = auth();
 
+  if (!userId) {
+    redirect("/");
+  }
   let favouriteCountries = [];
 
   if (userId) {
     const { countries = [], error } = await getFavouriteCountries();
 
     if (error) return <div className="px-4 md:container mt-10">{error}</div>;
+
 
     if (countries.length > 0) {
       favouriteCountries = await Promise.all(

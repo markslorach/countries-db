@@ -27,7 +27,7 @@ const FavouriteCountriesContainer = ({ userId, favouriteCountries }: Props) => {
 
   return (
     <div>
-      <SignedOut>
+      {/* <SignedOut>
         {userId ? <BackButton /> : <HomeButton />}
         <p className="mt-10">
           Please{" "}
@@ -36,7 +36,7 @@ const FavouriteCountriesContainer = ({ userId, favouriteCountries }: Props) => {
           </Link>{" "}
           to see your favourite countries.
         </p>
-      </SignedOut>
+      </SignedOut> */}
       <SignedIn>
         <CountryList
           data={alphabeticalOrder(optimisticFavourites)}
