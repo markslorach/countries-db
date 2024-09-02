@@ -8,11 +8,11 @@ type Props = {
 
 const SearchCountry = ({ search = "", setSearch = () => {} }: Props) => {
   return (
-    <div role="search" className="w-full relative flex items-center">
-      <Search className="absolute ml-3 h-6 w-6 text-gray-600" />
+    <div role="search" className="w-full">
       <Input
-        className="focus-visible:ring-0 md:w-72 h-14 pl-11 pr-5 shadow-sm dark:bg-gray-700"
+        className="focus-visible:ring-0 md:w-72 h-14 shadow-sm dark:bg-gray-700"
         type="text"
+        icon={<Search className="h-6 w-6 text-gray-600" />}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search for a country..."
