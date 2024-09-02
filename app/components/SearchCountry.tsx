@@ -6,12 +6,11 @@ type Props = {
   setSearch: (search: string) => void;
 };
 
-const SearchCountry = ({ search = "", setSearch = () => {} }: Props) => {
+const SearchCountry = ({ search, setSearch }: Props) => {
   return (
     <div role="search" className="w-full">
       <Input
         className="focus-visible:ring-0 md:w-72 h-14 shadow-sm dark:bg-gray-700"
-        type="text"
         icon={<Search className="h-6 w-6 text-gray-600" />}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
