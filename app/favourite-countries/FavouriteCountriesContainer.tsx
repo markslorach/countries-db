@@ -28,7 +28,7 @@ const FavouriteCountriesContainer = ({ userId, favouriteCountries }: Props) => {
   return (
     <div>
       <SignedOut>
-        {userId ? <BackButton /> : <HomeButton />}
+        <HomeButton />
         <p className="mt-10">
           Please{" "}
           <Link href="/sign-in" className="text-blue-500">
