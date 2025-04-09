@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import FavouriteCountriesContextProvider from "@/providers/favourite-countries-context-provider";
 import { FavouriteCountry } from "@prisma/client";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -17,15 +18,19 @@ const FavouriteCountriesLayout = async ({
     redirect("/");
   }
 
-  const favouriteCountries = await prisma.favouriteCountry.findMany({
+  const favouriteCountryCodes = (await prisma.favouriteCountry.findMany({
     where: {
       userId: session.user.id,
     },
-  }) as FavouriteCountry[] | []
+  })) as FavouriteCountry[] | [];
 
-  console.log(favouriteCountries);
+  console.log(favouriteCountryCodes);
 
-  return <div>{children}</div>;
+  return (
+    <FavouriteCountriesContextProvider data={favouriteCountryCodes}>
+      {children}
+    </FavouriteCountriesContextProvider>
+  );
 };
 
 export default FavouriteCountriesLayout;
