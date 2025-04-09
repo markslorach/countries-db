@@ -9,6 +9,8 @@ type FavouriteCountriesContextProviderProps = {
 
 type TFavouriteCountriesContext = {
   favouriteCountries: Country[];
+  addFavouriteCountry: (country: Country) => void;
+  removeFavouriteCountry: (country: Country) => void;
 };
 
 export const FavouriteCountriesContext =
@@ -21,10 +23,22 @@ const FavouriteCountriesContextProvider = ({
   const [optimisticFavouriteCountries, setOptimisticFavouriteCountries] =
     useOptimistic<Country[]>(data);
 
+  const addFavouriteCountry = (country: Country) => {
+    setOptimisticFavouriteCountries((prev) => [...prev, country]);
+  };
+
+  const removeFavouriteCountry = (country: Country) => {
+    setOptimisticFavouriteCountries((prev) =>
+      prev.filter((c) => c.cca3 !== country.cca3),
+    );
+  };
+
   return (
     <FavouriteCountriesContext.Provider
       value={{
         favouriteCountries: optimisticFavouriteCountries,
+        addFavouriteCountry,
+        removeFavouriteCountry,
       }}
     >
       {children}
