@@ -18,8 +18,10 @@ const Footer = () => {
           .
         </p>
 
-        {/* TODO: Add project GitHub link once deployed. */}
-        <Link href="#" target="_blank">
+        <Link
+          href="https://github.com/markslorach/countries-db.git"
+          target="_blank"
+        >
           <Github className="size-5" />
         </Link>
       </Container>
