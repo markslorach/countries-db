@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 
 const SignOutBtn = () => {
   const router = useRouter();
+
   return (
     <button
       onClick={async () => {
@@ -16,7 +17,7 @@ const SignOutBtn = () => {
           },
         });
       }}
-      className="w-full text-left cursor-pointer font-medium"
+      className="w-full cursor-pointer text-left font-medium"
     >
       Sign Out
     </button>

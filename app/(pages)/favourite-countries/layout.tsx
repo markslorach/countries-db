@@ -1,4 +1,6 @@
 import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { FavouriteCountry } from "@prisma/client";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -14,6 +16,14 @@ const FavouriteCountriesLayout = async ({
   if (!session) {
     redirect("/");
   }
+
+  const favouriteCountries = await prisma.favouriteCountry.findMany({
+    where: {
+      userId: session.user.id,
+    },
+  }) as FavouriteCountry[] | []
+
+  console.log(favouriteCountries);
 
   return <div>{children}</div>;
 };
