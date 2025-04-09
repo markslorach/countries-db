@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 
 const UserDropdown = ({ user }: { user: User }) => {
   const pathname = usePathname();
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

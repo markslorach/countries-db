@@ -8,7 +8,7 @@ type FavouriteCountriesContextProviderProps = {
 };
 
 type TFavouriteCountriesContext = {
-  optimisticFavouriteCountries: Country[];
+  favouriteCountries: Country[];
 };
 
 export const FavouriteCountriesContext =
@@ -16,15 +16,15 @@ export const FavouriteCountriesContext =
 
 const FavouriteCountriesContextProvider = ({
   children,
-  data: favouriteCountries,
+  data,
 }: FavouriteCountriesContextProviderProps) => {
   const [optimisticFavouriteCountries, setOptimisticFavouriteCountries] =
-    useOptimistic<Country[]>(favouriteCountries);
+    useOptimistic<Country[]>(data);
 
   return (
     <FavouriteCountriesContext.Provider
       value={{
-        optimisticFavouriteCountries,
+        favouriteCountries: optimisticFavouriteCountries,
       }}
     >
       {children}
