@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { User } from "@prisma/client";
 import { UserRound, UserRoundPen, Star } from "lucide-react";
@@ -11,8 +12,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import SignOutBtn from "./sign-out-btn";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const UserDropdown = ({ user }: { user: User }) => {
+  const pathname = usePathname();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -23,24 +27,32 @@ const UserDropdown = ({ user }: { user: User }) => {
       <DropdownMenuContent align="end" className="mt-6 w-50 rounded-xs">
         <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <Link
-            href="/favourite-countries"
-            className="flex h-full w-full items-center gap-2"
+        <div className="space-y-1">
+          <DropdownMenuItem
+            className={cn({
+              "bg-gray-100": pathname === "/favourite-countries",
+            })}
           >
-            <Star />
-            Favourites
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link
-            href="/account"
-            className="flex h-full w-full items-center gap-2"
+            <Link
+              href="/favourite-countries"
+              className="flex h-full w-full items-center gap-2"
+            >
+              <Star />
+              Favourites
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className={cn({ "bg-gray-100": pathname === "/account" })}
           >
-            <UserRoundPen />
-            Account
-          </Link>
-        </DropdownMenuItem>
+            <Link
+              href="/account"
+              className="flex h-full w-full items-center gap-2"
+            >
+              <UserRoundPen />
+              Account
+            </Link>
+          </DropdownMenuItem>
+        </div>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <SignOutBtn />
