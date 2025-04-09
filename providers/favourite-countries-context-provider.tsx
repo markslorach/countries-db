@@ -1,14 +1,14 @@
 "use client";
-import { FavouriteCountry } from "@prisma/client";
-import { createContext } from "react";
+import { Country } from "@/types/country";
+import { createContext, useOptimistic } from "react";
 
 type FavouriteCountriesContextProviderProps = {
-  data: FavouriteCountry[];
   children: React.ReactNode;
+  data: Country[];
 };
 
 type TFavouriteCountriesContext = {
-  favouriteCountries: FavouriteCountry[];
+  optimisticFavouriteCountries: Country[];
 };
 
 export const FavouriteCountriesContext =
@@ -16,10 +16,17 @@ export const FavouriteCountriesContext =
 
 const FavouriteCountriesContextProvider = ({
   children,
-  data,
+  data: favouriteCountries,
 }: FavouriteCountriesContextProviderProps) => {
+  const [optimisticFavouriteCountries, setOptimisticFavouriteCountries] =
+    useOptimistic<Country[]>(favouriteCountries);
+
   return (
-    <FavouriteCountriesContext.Provider value={{ favouriteCountries: data }}>
+    <FavouriteCountriesContext.Provider
+      value={{
+        optimisticFavouriteCountries,
+      }}
+    >
       {children}
     </FavouriteCountriesContext.Provider>
   );
