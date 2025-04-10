@@ -23,7 +23,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
 
       {isAuthenticated && (
         <div className="absolute right-3 bottom-3 z-20">
-          <FavouriteButton countryCode={country.cca3} />
+          <FavouriteButton country={country} />
         </div>
       )}
     </div>

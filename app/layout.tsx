@@ -7,6 +7,9 @@ import Footer from "./components/shared/footer";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Providers from "@/providers/providers";
+import { prisma } from "@/lib/prisma";
+import { getCountries } from "@/server/countries";
+import { Country } from "@/types/country";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -27,13 +30,32 @@ export default async function RootLayout({
     headers: await headers(),
   });
 
+  let favouriteCountries: Country[] = [];
+
+  if (session) {
+    const favouriteCountryCodes = await prisma.favouriteCountry.findMany({
+      where: {
+        userId: session.user.id,
+      },
+    });
+
+    const allCountries = getCountries();
+
+    favouriteCountries = allCountries.data?.filter((country) =>
+      favouriteCountryCodes.map((fc) => fc.country).includes(country.cca3),
+    ) as unknown as Country[];
+  }
+
   return (
     <html lang="en">
       <body
         className={`${notoSans.className} flex min-h-screen flex-col bg-gray-50 sm:overflow-y-scroll`}
       >
         <Navbar />
-        <Providers isAuthenticated={!!session}>
+        <Providers
+          isAuthenticated={!!session}
+          favouriteCountries={favouriteCountries}
+        >
           <main className="flex-grow">{children}</main>
         </Providers>
         <Toaster

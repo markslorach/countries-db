@@ -1,6 +1,11 @@
 "use client";
+import {
+  addFavouriteCountryAction,
+  removeFavouriteCountryAction,
+} from "@/server/user";
 import { Country } from "@/types/country";
 import { createContext, useOptimistic } from "react";
+import { toast } from "sonner";
 
 type FavouriteCountriesContextProviderProps = {
   children: React.ReactNode;
@@ -28,12 +33,26 @@ const FavouriteCountriesContextProvider = ({
 
   const addFavouriteCountry = async (country: Country) => {
     setOptimisticFavouriteCountries((prev) => [...prev, country]);
+
+    const { error } = await addFavouriteCountryAction(country.cca3);
+
+    if (error) {
+      toast.error(error);
+    }
   };
 
-  const removeFavouriteCountry = async (country: Country) => {
+  const removeFavouriteCountry = async (
+    country: Country,
+  ) => {
     setOptimisticFavouriteCountries((prev) =>
       prev.filter((c) => c.cca3 !== country.cca3),
     );
+
+    const { error } = await removeFavouriteCountryAction(country.cca3);
+
+    if (error) {
+      toast.error(error);
+    }
   };
 
   return (

@@ -1,10 +1,10 @@
-import "server-only";
+"use server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
-export const addFavouriteCountry = async (countryCode: string) => {
+export const addFavouriteCountryAction = async (countryCode: string) => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -30,7 +30,7 @@ export const addFavouriteCountry = async (countryCode: string) => {
       },
     });
 
-    revalidatePath("/favourite-countries");
+    revalidatePath("/");
 
     return {
       success: true,
@@ -81,7 +81,7 @@ export const getFavouriteCountries = async () => {
   }
 };
 
-export const removeFavouriteCountry = async (countryCode: string) => {
+export const removeFavouriteCountryAction = async (countryCode: string) => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -115,6 +115,8 @@ export const removeFavouriteCountry = async (countryCode: string) => {
         id: existingCountry.id,
       },
     });
+
+    revalidatePath("/");
 
     return {
       success: true,
