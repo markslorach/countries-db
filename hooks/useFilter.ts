@@ -1,17 +1,16 @@
 "use client";
-import { useQueryState } from "nuqs";
-import { Region } from "@/types/filter";
+import { parseAsString, useQueryState } from "nuqs";
 
 export const useFilter = () => {
-  const [searchQuery, setSearchQuery] = useQueryState("search", {
-    defaultValue: "",
-  });
+  const [searchQuery, setSearchQuery] = useQueryState(
+    "search",
+    parseAsString.withDefault(""),
+  );
 
-  const [selectedRegion, setSelectedRegion] = useQueryState<Region>("region", {
-    defaultValue: "All",
-    parse: (value) => value as Region,
-    serialize: (value) => value as string,
-  });
+  const [selectedRegion, setSelectedRegion] = useQueryState(
+    "region",
+    parseAsString.withDefault("All"),
+  );
 
   return {
     searchQuery,
