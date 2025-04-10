@@ -4,6 +4,7 @@ import FiltersContainer from "@/app/components/country-filters/filters-container
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import FavouritesContainer from "./favourites-container";
 
 const FavouriteCountriesPage = async () => {
   const session = await auth.api.getSession({
@@ -18,6 +19,7 @@ const FavouriteCountriesPage = async () => {
     <Container className="my-10">
       <FiltersContainer />
       <Heading className="mb-5 leading-snug">Favourite Countries</Heading>
+      <FavouritesContainer />
     </Container>
   );
 };
