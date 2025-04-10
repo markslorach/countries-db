@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import FavouriteCountriesContextProvider from "@/providers/favourite-countries-context-provider";
+import Providers from "@/providers/providers";
 import { getCountries } from "@/server/countries";
 import { Country } from "@/types/country";
 import { headers } from "next/headers";
@@ -26,7 +26,7 @@ const FavouriteCountriesLayout = async ({
       userId: session.user.id,
     },
   });
-  
+
   const allCountries = getCountries();
 
   const favouriteCountries = allCountries.data?.filter((country) =>
@@ -34,11 +34,12 @@ const FavouriteCountriesLayout = async ({
   );
 
   return (
-    <FavouriteCountriesContextProvider
-      data={favouriteCountries as unknown as Country[]}
+    <Providers
+      favouriteCountries={favouriteCountries as unknown as Country[]}
+      isAuthenticated={!!session}
     >
       {children}
-    </FavouriteCountriesContextProvider>
+    </Providers>
   );
 };
 

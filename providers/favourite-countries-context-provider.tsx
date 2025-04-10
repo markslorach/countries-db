@@ -4,13 +4,15 @@ import { createContext, useOptimistic } from "react";
 
 type FavouriteCountriesContextProviderProps = {
   children: React.ReactNode;
-  data: Country[];
+  data?: Country[];
+  isAuthenticated: boolean;
 };
 
 type TFavouriteCountriesContext = {
   favouriteCountries: Country[];
   addFavouriteCountry: (country: Country) => void;
   removeFavouriteCountry: (country: Country) => void;
+  isAuthenticated: boolean;
 };
 
 export const FavouriteCountriesContext =
@@ -19,15 +21,16 @@ export const FavouriteCountriesContext =
 const FavouriteCountriesContextProvider = ({
   children,
   data,
+  isAuthenticated,
 }: FavouriteCountriesContextProviderProps) => {
   const [optimisticFavouriteCountries, setOptimisticFavouriteCountries] =
-    useOptimistic<Country[]>(data);
+    useOptimistic<Country[]>(data || []);
 
-  const addFavouriteCountry = (country: Country) => {
+  const addFavouriteCountry = async (country: Country) => {
     setOptimisticFavouriteCountries((prev) => [...prev, country]);
   };
 
-  const removeFavouriteCountry = (country: Country) => {
+  const removeFavouriteCountry = async (country: Country) => {
     setOptimisticFavouriteCountries((prev) =>
       prev.filter((c) => c.cca3 !== country.cca3),
     );
@@ -39,6 +42,7 @@ const FavouriteCountriesContextProvider = ({
         favouriteCountries: optimisticFavouriteCountries,
         addFavouriteCountry,
         removeFavouriteCountry,
+        isAuthenticated,
       }}
     >
       {children}

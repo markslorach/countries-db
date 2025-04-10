@@ -4,6 +4,9 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "./components/shared/navbar";
 import Footer from "./components/shared/footer";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import Providers from "@/providers/providers";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -15,18 +18,24 @@ export const metadata: Metadata = {
   description: "Explore the countries of the world.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
   return (
     <html lang="en">
       <body
         className={`${notoSans.className} flex min-h-screen flex-col bg-gray-50 sm:overflow-y-scroll`}
       >
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <Providers isAuthenticated={!!session}>
+          <main className="flex-grow">{children}</main>
+        </Providers>
         <Toaster
           position="bottom-right"
           visibleToasts={1}
