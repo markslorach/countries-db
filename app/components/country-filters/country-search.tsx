@@ -1,6 +1,6 @@
 "use client";
-import { useFilter } from "@/hooks/useFilter";
 import { Input } from "@/components/ui/input";
+import { useFilter } from "@/hooks/useFilter";
 import { Search } from "lucide-react";
 
 const CountrySearch = () => {

@@ -12,11 +12,12 @@ import { REGIONS } from "@/lib/constants";
 import { Region } from "@/types/filter";
 
 const RegionSelect = () => {
-  const { setSelectedRegion } = useFilter();
+  const { selectedRegion, setSelectedRegion } = useFilter();
 
   return (
     <Select
-      defaultValue="All"
+      defaultValue={selectedRegion}
+      value={selectedRegion}
       onValueChange={(value) => setSelectedRegion(value as Region)}
     >
       <SelectTrigger className="h-14 w-full cursor-pointer bg-white px-5 sm:w-56">

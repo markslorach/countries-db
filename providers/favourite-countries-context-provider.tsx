@@ -28,9 +28,11 @@ const FavouriteCountriesContextProvider = ({
   data,
   isAuthenticated,
 }: FavouriteCountriesContextProviderProps) => {
+  // State
   const [optimisticFavouriteCountries, setOptimisticFavouriteCountries] =
     useOptimistic<Country[]>(data || []);
 
+  // Actions
   const addFavouriteCountry = async (country: Country) => {
     setOptimisticFavouriteCountries((prev) => [...prev, country]);
 
@@ -41,9 +43,7 @@ const FavouriteCountriesContextProvider = ({
     }
   };
 
-  const removeFavouriteCountry = async (
-    country: Country,
-  ) => {
+  const removeFavouriteCountry = async (country: Country) => {
     setOptimisticFavouriteCountries((prev) =>
       prev.filter((c) => c.cca3 !== country.cca3),
     );

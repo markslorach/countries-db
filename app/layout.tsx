@@ -10,6 +10,7 @@ import Providers from "@/providers/providers";
 import { prisma } from "@/lib/prisma";
 import { getCountries } from "@/server/countries";
 import { Country } from "@/types/country";
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -52,12 +53,14 @@ export default async function RootLayout({
         className={`${notoSans.className} flex min-h-screen flex-col bg-gray-50 sm:overflow-y-scroll`}
       >
         <Navbar />
-        <Providers
-          isAuthenticated={!!session}
-          favouriteCountries={favouriteCountries}
+        <NuqsAdapter>
+          <Providers
+            isAuthenticated={!!session}
+            favouriteCountries={favouriteCountries}
         >
-          <main className="flex-grow">{children}</main>
-        </Providers>
+            <main className="flex-grow">{children}</main>
+          </Providers>
+        </NuqsAdapter>
         <Toaster
           position="bottom-right"
           visibleToasts={1}

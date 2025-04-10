@@ -11,7 +11,7 @@ const FavouritesContainer = () => {
       {favouriteCountries.length > 0 ? (
         <CountryList countries={favouriteCountries} />
       ) : (
-        <p className="text-gray-500">You haven&apos;t added any favourite countries yet.</p>
+        <p className="text-gray-500">Add some countries to your favourites to see them here!</p>
       )}
       <ScrollButton />
     </section>

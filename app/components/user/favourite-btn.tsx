@@ -17,7 +17,7 @@ const FavouriteButton = ({ country }: { country: Country }) => {
     e.stopPropagation();
   };
 
-  const action = async () => {
+  const action = () => {
     if (isFavourite) {
       removeFavouriteCountry(country);
     } else {
@@ -29,7 +29,7 @@ const FavouriteButton = ({ country }: { country: Country }) => {
     <form action={action}>
       <Button
         onClick={handleClick}
-        className="bg-gray-50 shadow-none hover:bg-gray-50"
+        className="group bg-gray-50 shadow-none transition-colors hover:bg-gray-100/70"
         size="icon"
         type="submit"
       >
