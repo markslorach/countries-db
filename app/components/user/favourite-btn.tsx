@@ -18,7 +18,7 @@ const FavouriteButton = ({ countryCode }: { countryCode: string }) => {
 
       <Button
         onClick={handleClick}
-        className="bg-gray-50 shadow-none hover:bg-gray-100/80"
+        className="bg-gray-50 shadow-none hover:bg-gray-50"
         size="icon"
       >
         <Star className="size-6 text-gray-300" />
