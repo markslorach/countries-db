@@ -1,6 +1,7 @@
 import data from "@/lib/data.json";
+import { cache } from "react";
 
-export function getCountries() {
+export const getCountries = cache(() => {
   try {
     const sortedData = [...data].sort((a, b) =>
       a.name.common.localeCompare(b.name.common),
@@ -18,9 +19,9 @@ export function getCountries() {
       error: error.message,
     };
   }
-}
+});
 
-export function getCountryByCode(code: string) {
+export const getCountryByCode = cache((code: string) => {
   try {
     const country = data.find((country) => country.cca3 === code);
 
@@ -36,4 +37,4 @@ export function getCountryByCode(code: string) {
       error: error.message,
     };
   }
-}
+});
