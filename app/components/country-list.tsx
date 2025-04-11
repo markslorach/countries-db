@@ -21,6 +21,10 @@ const CountryList = ({ countries }: CountryListProps) => {
     return matchesSearch && matchesRegion;
   });
 
+  if (filteredCountries?.length === 0) {
+    return <p className="text-gray-500">No countries found.</p>;
+  }
+
   return (
     <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {filteredCountries?.map((country) => (
