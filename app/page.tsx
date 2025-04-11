@@ -14,7 +14,7 @@ export default async function Home() {
   }
 
   return (
-    <Container className="my-10">
+    <Container className="mt-10 mb-20">
       <FiltersContainer />
       <Heading className="mb-5 leading-snug">Countries</Heading>
       <CountryList countries={countries as unknown as Country[]} />

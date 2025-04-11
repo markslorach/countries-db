@@ -17,7 +17,7 @@ const SignOutBtn = () => {
           },
         });
       }}
-      className="w-full cursor-pointer text-left font-medium"
+      className="w-full cursor-pointer px-2 py-1.5 text-left font-medium"
     >
       Sign Out
     </button>

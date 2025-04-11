@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 const UserDropdown = ({ user }: { user: User }) => {
   const pathname = usePathname();
-  
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,29 +25,29 @@ const UserDropdown = ({ user }: { user: User }) => {
           <UserRound className="size-6" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="mt-6 w-50 rounded-xs">
+      <DropdownMenuContent align="end" className="mt-6 rounded-xs">
         <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <div className="space-y-1">
-          <DropdownMenuItem
-            className={cn({
-              "bg-gray-100": pathname === "/favourite-countries",
-            })}
-          >
+          <DropdownMenuItem className="p-0">
             <Link
               href="/favourite-countries"
-              className="flex h-full w-full items-center gap-2"
+              className={cn({
+                "flex h-full w-full items-center gap-2 px-2 py-1.5": true,
+                "bg-gray-100": pathname === "/favourite-countries",
+              })}
             >
               <Star />
               Favourites
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem
-            className={cn({ "bg-gray-100": pathname === "/account" })}
-          >
+          <DropdownMenuItem className="p-0">
             <Link
               href="/account"
-              className="flex h-full w-full items-center gap-2"
+              className={cn({
+                "flex h-full w-full items-center gap-2 px-2 py-1.5": true,
+                "bg-gray-100": pathname === "/account",
+              })}
             >
               <UserRoundPen />
               Account
@@ -55,7 +55,7 @@ const UserDropdown = ({ user }: { user: User }) => {
           </DropdownMenuItem>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem className="p-0">
           <SignOutBtn />
         </DropdownMenuItem>
       </DropdownMenuContent>

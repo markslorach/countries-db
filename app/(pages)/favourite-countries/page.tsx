@@ -16,7 +16,7 @@ const FavouriteCountriesPage = async () => {
   }
 
   return (
-    <Container className="my-10">
+    <Container className="mt-10 mb-20">
       <FiltersContainer />
       <Heading className="mb-5 leading-snug">Favourite Countries</Heading>
       <FavouritesContainer />
