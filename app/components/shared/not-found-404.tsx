@@ -9,9 +9,10 @@ const NotFound404 = () => {
       <Image
         src="/images/planet.svg"
         alt="Not Found"
-        width={200}
-        height={200}
+        width={150}
+        height={150}
         className="size-40"
+        priority
       />
 
       <div className="flex flex-col items-center gap-5">
