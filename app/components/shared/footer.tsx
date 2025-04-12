@@ -11,7 +11,7 @@ const Footer = () => {
           <Link
             href="https://markslorach.com"
             target="_blank"
-            className="text-blue-500 underline"
+            className="text-blue-500 underline underline-offset-3"
           >
             Mark Slorach
           </Link>

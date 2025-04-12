@@ -4,6 +4,8 @@ import { auth } from "@/lib/auth";
 import Container from "@/app/components/shared/container";
 import Heading from "@/app/components/shared/heading";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 const AccountPage = async () => {
   const session = await auth.api.getSession({
@@ -29,9 +31,20 @@ const AccountPage = async () => {
         </div>
       </dl>
 
-      <Button variant="destructive" className="w-fit" disabled>
-        Delete Account
-      </Button>
+      <div className="mb-10">
+        <Button variant="destructive" className="w-fit" disabled>
+          Delete Account
+        </Button>
+      </div>
+
+      <Separator className="mb-5" />
+
+      <Link
+        href="/privacy-policy"
+        className="text-sm text-blue-500 underline underline-offset-3"
+      >
+        Privacy Policy
+      </Link>
     </Container>
   );
 };
