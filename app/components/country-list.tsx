@@ -8,12 +8,12 @@ type CountryListProps = {
 };
 
 const CountryList = ({ countries }: CountryListProps) => {
-  const { searchQuery, selectedRegion } = useFilter();
+  const { debouncedSearchQuery, selectedRegion } = useFilter();
 
   const filteredCountries = countries?.filter((country) => {
     const matchesSearch = country.name.common
       .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+      .includes(debouncedSearchQuery.toLowerCase());
 
     const matchesRegion =
       selectedRegion === "All" || country.region === selectedRegion;

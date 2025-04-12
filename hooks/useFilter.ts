@@ -1,5 +1,6 @@
 "use client";
 import { parseAsString, useQueryState } from "nuqs";
+import { useDebounce } from "use-debounce";
 
 export const useFilter = () => {
   const [searchQuery, setSearchQuery] = useQueryState(
@@ -12,8 +13,11 @@ export const useFilter = () => {
     parseAsString.withDefault("All"),
   );
 
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 200);
+
   return {
     searchQuery,
+    debouncedSearchQuery,
     selectedRegion,
     setSearchQuery,
     setSelectedRegion,
