@@ -43,13 +43,14 @@ export default async function RootLayout({
       <body
         className={`${notoSans.className} flex min-h-screen flex-col bg-gray-50 sm:overflow-y-scroll`}
       >
-        <Navbar />
         <NuqsAdapter>
           <Providers
             isAuthenticated={!!session}
             favouriteCountries={favouriteCountries}
           >
+            <Navbar />
             <main className="flex-grow">{children}</main>
+            <Footer />
           </Providers>
         </NuqsAdapter>
         <Toaster
@@ -58,7 +59,6 @@ export default async function RootLayout({
           richColors
           theme="light"
         />
-        <Footer />
       </body>
     </html>
   );
