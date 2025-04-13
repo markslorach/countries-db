@@ -14,8 +14,8 @@ const CountryCardInfo = ({ country }: CountryCardInfoProps) => {
       </Heading>
       <div className="space-y-2">
         <div className="flex items-center gap-1.5">
-          <MapPin className="size-4 text-gray-500" />
-          <span className="text-sm text-gray-500">
+          <MapPin className="text-muted-foreground size-4" />
+          <span className="text-muted-foreground text-sm">
             {country.capital?.length > 1 ? "Capitals:" : "Capital:"}
           </span>
           <span className="line-clamp-1 text-sm font-medium">
@@ -24,16 +24,16 @@ const CountryCardInfo = ({ country }: CountryCardInfoProps) => {
         </div>
 
         <div className="flex items-center gap-1.5">
-          <UsersRound className="size-4 text-gray-500" />
-          <span className="text-sm text-gray-500">Population:</span>
+          <UsersRound className="text-muted-foreground size-4" />
+          <span className="text-muted-foreground text-sm">Population:</span>
           <span className="text-sm font-medium">
             {country.population.toLocaleString()}
           </span>
         </div>
 
         <div className="flex items-center gap-1.5">
-          <Earth className="size-4 text-gray-500" />
-          <span className="text-sm text-gray-500">Region:</span>
+          <Earth className="text-muted-foreground size-4" />
+          <span className="text-muted-foreground text-sm">Region:</span>
           <span className="text-sm font-medium">{country.region}</span>
         </div>
       </div>
