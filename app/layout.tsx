@@ -7,10 +7,9 @@ import Footer from "./components/shared/footer";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Providers from "@/providers/providers";
-import { prisma } from "@/lib/prisma";
-import { getCountries } from "@/server/countries";
+import { getFavouriteCountries } from "@/server/user";
 import { Country } from "@/types/country";
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -34,17 +33,9 @@ export default async function RootLayout({
   let favouriteCountries: Country[] = [];
 
   if (session) {
-    const favouriteCountryCodes = await prisma.favouriteCountry.findMany({
-      where: {
-        userId: session.user.id,
-      },
-    });
-
-    const allCountries = getCountries();
-
-    favouriteCountries = allCountries.data?.filter((country) =>
-      favouriteCountryCodes.map((fc) => fc.country).includes(country.cca3),
-    ) as unknown as Country[];
+    const result = await getFavouriteCountries();
+    
+    if (result.data) favouriteCountries = result.data;
   }
 
   return (
@@ -57,7 +48,7 @@ export default async function RootLayout({
           <Providers
             isAuthenticated={!!session}
             favouriteCountries={favouriteCountries}
-        >
+          >
             <main className="flex-grow">{children}</main>
           </Providers>
         </NuqsAdapter>
