@@ -26,7 +26,7 @@ type DeleteAccountActionProps = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
-const deleteAccountForm = ({ isOpen, setIsOpen }: DeleteAccountActionProps) => {
+const DeleteAccountForm = ({ isOpen, setIsOpen }: DeleteAccountActionProps) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -113,4 +113,4 @@ const deleteAccountForm = ({ isOpen, setIsOpen }: DeleteAccountActionProps) => {
   );
 };
 
-export default deleteAccountForm;
+export default DeleteAccountForm;

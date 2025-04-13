@@ -5,7 +5,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogTitle,
   DialogHeader,
   DialogTrigger,
