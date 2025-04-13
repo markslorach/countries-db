@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import Container from "@/app/components/shared/container";
 import Heading from "@/app/components/shared/heading";
-import DeleteAccount from "./delete-account";
+import DangerZone from "./danger-zone";
 import PersonalInfo from "./personal-info";
 
 const AccountPage = async () => {
@@ -26,9 +26,9 @@ const AccountPage = async () => {
         </p>
       </div>
 
-      <div className="space-y-5">
+      <div className="w-full max-w-[500px] space-y-8">
         <PersonalInfo session={session} />
-        <DeleteAccount isTestAccount={isTestAccount} />
+        <DangerZone isTestAccount={isTestAccount} />
       </div>
     </Container>
   );

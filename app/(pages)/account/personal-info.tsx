@@ -18,22 +18,12 @@ const PersonalInfo = ({ session }: PersonalInfoProps) => {
         Personal Information
       </Heading>
 
-      <div className="w-full max-w-[550px]">
-        <div className="space-y-4">
-          <Label className="mb-3">Name</Label>
-          <Input
-            value={session.user?.name}
-            disabled
-            className="h-11 bg-white"
-          />
+      <div className="space-y-4">
+        <Label className="mb-3">Name</Label>
+        <Input value={session.user?.name} disabled className="h-11 bg-white" />
 
-          <Label className="mb-3">Email</Label>
-          <Input
-            value={session.user?.email}
-            disabled
-            className="h-11 bg-white"
-          />
-        </div>
+        <Label className="mb-3">Email</Label>
+        <Input value={session.user?.email} disabled className="h-11 bg-white" />
       </div>
     </section>
   );
