@@ -4,7 +4,6 @@ import { auth } from "@/lib/auth";
 import Container from "@/app/components/shared/container";
 import Heading from "@/app/components/shared/heading";
 import DeleteAccount from "./delete-account";
-import { Separator } from "@/components/ui/separator";
 
 const AccountPage = async () => {
   const session = await auth.api.getSession({
@@ -25,8 +24,6 @@ const AccountPage = async () => {
           Manage your account settings and preferences.
         </p>
       </div>
-
-      {/* <Separator className="my-5" /> */}
 
       <div>
         <h2 className="mb-2 font-semibold">Personal Information</h2>
