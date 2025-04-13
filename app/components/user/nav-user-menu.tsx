@@ -1,18 +1,14 @@
 import { LogIn } from "lucide-react";
 import { User } from "@prisma/client";
-import { headers } from "next/headers";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { auth } from "@/lib/auth";
 import UserDropdown from "./user-dropdown";
 
-const NavUserMenu = async () => {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+type NavUserMenuProps = {
+  user?: User;
+};
 
-  const user = session?.user;
-
+const NavUserMenu = ({ user }: NavUserMenuProps) => {
   return (
     <div>
       {!user ? (
@@ -22,7 +18,7 @@ const NavUserMenu = async () => {
           </Link>
         </Button>
       ) : (
-        <UserDropdown user={user as User} />
+        <UserDropdown user={user} />
       )}
     </div>
   );

@@ -4,8 +4,13 @@ import { Button } from "@/components/ui/button";
 import Container from "./container";
 import NavUserMenu from "../user/nav-user-menu";
 import SiteLogo from "./site-logo";
+import { User } from "@prisma/client";
 
-const Navbar = () => {
+type NavbarProps = {
+  user?: User;
+};
+
+const Navbar = ({ user }: NavbarProps) => {
   return (
     <header className="h-20 bg-white shadow-xs">
       <Container className="flex items-center justify-between">
@@ -18,7 +23,7 @@ const Navbar = () => {
             </Button>
           }
         >
-          <NavUserMenu />
+          <NavUserMenu user={user} />
         </Suspense>
       </Container>
     </header>

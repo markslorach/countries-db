@@ -10,6 +10,7 @@ import Providers from "@/providers/providers";
 import { getFavouriteCountries } from "@/server/user";
 import { Country } from "@/types/country";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { User } from "@prisma/client";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -34,7 +35,7 @@ export default async function RootLayout({
 
   if (session) {
     const result = await getFavouriteCountries();
-    
+
     if (result.data) favouriteCountries = result.data;
   }
 
@@ -48,7 +49,7 @@ export default async function RootLayout({
             isAuthenticated={!!session}
             favouriteCountries={favouriteCountries}
           >
-            <Navbar />
+            <Navbar user={session?.user as User} />
             <main className="flex-grow">{children}</main>
             <Footer />
           </Providers>
