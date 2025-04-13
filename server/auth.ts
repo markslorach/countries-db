@@ -83,7 +83,7 @@ export const deleteAccount = async (data: DeleteAccountFormType) => {
     headers: await headers(),
   });
 
-  if (!session) {
+  if (!session || session.user.email === process.env.TEST_USER_EMAIL) {
     return {
       success: false,
       error: "Unauthorized",
