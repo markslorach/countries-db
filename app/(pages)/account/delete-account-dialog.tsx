@@ -30,7 +30,7 @@ const DeleteAccountDialog = ({ isTestAccount }: DeleteAccountDialogProps) => {
           Delete Account
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[500px] border border-red-300">
+      <DialogContent className="w-[490px] border border-red-300">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-red-500">
             <CircleAlert className="size-5" />

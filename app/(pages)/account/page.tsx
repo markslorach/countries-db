@@ -26,7 +26,7 @@ const AccountPage = async () => {
         </p>
       </div>
 
-      <div className="w-full max-w-[500px] space-y-8">
+      <div className="w-full max-w-[490px] space-y-8">
         <PersonalInfo session={session} />
         <DangerZone isTestAccount={isTestAccount} />
       </div>
