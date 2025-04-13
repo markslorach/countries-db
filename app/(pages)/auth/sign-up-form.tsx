@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import GoogleLogo from "@/components/ui/google-logo";
 import { signUp } from "@/server/auth";
 import { SignUpFormType, signUpFormSchema } from "@/utils/validationSchemas";
+import ShowPasswordButton from "./show-password-btn";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -106,19 +106,10 @@ const SignUpForm = () => {
                     {...field}
                     className="h-11"
                   />
-                  <Button
-                    onClick={() => setShowPassword(!showPassword)}
-                    type="button"
-                    variant="ghost"
-                    size="icon"
-                    className="text-muted-foreground absolute top-1/2 right-2 -translate-y-1/2 hover:bg-transparent"
-                  >
-                    {showPassword ? (
-                      <EyeOff className="size-5" />
-                    ) : (
-                      <Eye className="size-5" />
-                    )}
-                  </Button>
+                  <ShowPasswordButton
+                    showPassword={showPassword}
+                    setShowPassword={setShowPassword}
+                  />
                 </div>
               </FormControl>
               <FormMessage />
@@ -142,19 +133,10 @@ const SignUpForm = () => {
                     {...field}
                     className="h-11"
                   />
-                  <Button
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    type="button"
-                    variant="ghost"
-                    size="icon"
-                    className="text-muted-foreground absolute top-1/2 right-2 -translate-y-1/2 hover:bg-transparent"
-                  >
-                    {showConfirmPassword ? (
-                      <EyeOff className="size-5" />
-                    ) : (
-                      <Eye className="size-5" />
-                    )}
-                  </Button>
+                  <ShowPasswordButton
+                    showPassword={showConfirmPassword}
+                    setShowPassword={setShowConfirmPassword}
+                  />
                 </div>
               </FormControl>
               <FormMessage />
