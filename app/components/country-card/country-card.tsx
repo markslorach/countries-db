@@ -13,12 +13,12 @@ const CountryCard = ({ country }: CountryCardProps) => {
   const { isAuthenticated } = useFavouriteCountriesContext();
 
   return (
-    <div className="relative transition-transform duration-300 md:hover:scale-[101.5%]">
+    <article className="relative transition-transform duration-300 md:hover:scale-[101.5%]">
       <Link href={`/country/${country.cca3}`}>
-        <article className="space-y-5 rounded-xs border border-gray-300/50 bg-white p-3 shadow-xs">
+        <div className="space-y-5 rounded-xs border border-gray-300/50 bg-white p-3 shadow-xs">
           <CountryCardImage country={country} />
           <CountryCardInfo country={country} />
-        </article>
+        </div>
       </Link>
 
       {isAuthenticated && (
@@ -26,7 +26,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
           <FavouriteButton country={country} />
         </div>
       )}
-    </div>
+    </article>
   );
 };
 
