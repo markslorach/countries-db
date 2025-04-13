@@ -11,6 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { CircleAlert } from "lucide-react";
+import DeleteAccountForm from "./delete-account-form";
 
 interface DeleteAccountDialogProps {
   isTestAccount: boolean;
@@ -18,10 +19,6 @@ interface DeleteAccountDialogProps {
 
 const DeleteAccountDialog = ({ isTestAccount }: DeleteAccountDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleCancelButtonClick = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -41,22 +38,12 @@ const DeleteAccountDialog = ({ isTestAccount }: DeleteAccountDialogProps) => {
             Are you sure?
           </DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our database.
+            This will permanently delete your account and remove your data from
+            our database.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter>
-          <Button
-            onClick={handleCancelButtonClick}
-            variant="outline"
-            className="h-11"
-          >
-            Cancel
-          </Button>
-          <Button variant="destructive" className="h-11">
-            Delete Account
-          </Button>
-        </DialogFooter>
+
+        <DeleteAccountForm isOpen={isOpen} setIsOpen={setIsOpen} />
       </DialogContent>
     </Dialog>
   );

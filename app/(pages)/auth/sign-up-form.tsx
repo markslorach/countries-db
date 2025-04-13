@@ -37,14 +37,14 @@ const SignUpForm = () => {
   const onSubmit = async (data: SignUpFormType) => {
     const result = await signUp(data);
 
-    if (result.success) {
-      router.push("/");
-      router.refresh();
-    }
-
     if (!result.success) {
       toast.error(result.error);
+      return;
     }
+
+    toast.success("Account created successfully");
+    router.push("/");
+    router.refresh();
   };
 
   return (

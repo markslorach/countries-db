@@ -1,46 +1,53 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff } from "lucide-react";
-import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormMessage,
-  FormItem,
   FormControl,
   FormField,
+  FormItem,
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import GoogleLogo from "@/components/ui/google-logo";
-import { signIn } from "@/server/auth";
-import { signInFormSchema, SignInFormType } from "@/utils/validationSchemas";
+import { deleteAccount } from "@/server/auth";
+import {
+  deleteAccountFormSchema,
+  DeleteAccountFormType,
+} from "@/utils/validationSchemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Eye, EyeOff } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-const SignInForm = () => {
+type DeleteAccountActionProps = {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+};
+
+const deleteAccountForm = ({ isOpen, setIsOpen }: DeleteAccountActionProps) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
-  const form = useForm<SignInFormType>({
-    resolver: zodResolver(signInFormSchema),
+  const form = useForm<DeleteAccountFormType>({
+    resolver: zodResolver(deleteAccountFormSchema),
     defaultValues: {
-      email: "",
       password: "",
     },
   });
 
-  const onSubmit = async (data: SignInFormType) => {
-    const result = await signIn(data);
+  const onSubmit = async (data: DeleteAccountFormType) => {
+    const result = await deleteAccount(data);
 
     if (!result.success) {
       toast.error(result.error);
       return;
     }
-    
+
+    toast.success("Account deleted successfully");
     router.push("/");
-    router.refresh()
+    router.refresh();
   };
 
   return (
@@ -48,28 +55,10 @@ const SignInForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <Label>Email</Label>
-              <FormControl>
-                <Input
-                  placeholder="example@email.com"
-                  {...field}
-                  className="h-11"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
           name="password"
           render={({ field }) => (
             <FormItem>
-              <Label>Password</Label>
+              <Label>Please enter your password to confirm.</Label>
               <FormControl>
                 <div className="relative">
                   <Input
@@ -98,23 +87,25 @@ const SignInForm = () => {
           )}
         />
 
-        <div className="flex items-center">
+        <div className="flex flex-col justify-end gap-2 sm:flex-row">
+          <Button
+            type="button"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+            variant="outline"
+            className="h-11"
+          >
+            Cancel
+          </Button>
+
           <Button
             type="submit"
-            className="h-11 flex-1 cursor-pointer"
+            variant="destructive"
+            className="h-11"
             disabled={form.formState.isSubmitting}
           >
-            {`${form.formState.isSubmitting ? "Signing In..." : "Sign In"}`}
-          </Button>
-          <div className="bg-border mx-4 h-11 w-[1px]" />
-          <Button
-            disabled
-            variant="outline"
-            className="h-11 flex-1 font-semibold"
-            type="button"
-          >
-            <GoogleLogo />
-            Google
+            {`${form.formState.isSubmitting ? "Deleting Account..." : "Delete Account"}`}
           </Button>
         </div>
       </form>
@@ -122,4 +113,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default deleteAccountForm;
