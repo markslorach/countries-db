@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { getCountries } from "@/server/countries";
 import { Country } from "@/types/country";
+import { User } from "better-auth";
 
 export const addFavouriteCountryAction = async (countryCode: string) => {
   const session = await auth.api.getSession({
@@ -48,10 +49,7 @@ export const addFavouriteCountryAction = async (countryCode: string) => {
   }
 };
 
-export const getFavouriteCountries = async () => {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+export const getFavouriteCountries = async (session: User) => {
 
   if (!session) {
     return {
@@ -60,12 +58,12 @@ export const getFavouriteCountries = async () => {
     };
   }
 
-  const { user } = session;
+  const {id: userId} = session;
 
   try {
     const favouriteCountryCodes = await prisma.favouriteCountry.findMany({
       where: {
-        userId: user.id,
+        userId
       },
     });
 

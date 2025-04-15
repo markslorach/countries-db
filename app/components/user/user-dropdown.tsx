@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { User } from "@prisma/client";
+import { User } from "better-auth";
 import { UserRound, UserRoundPen, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {

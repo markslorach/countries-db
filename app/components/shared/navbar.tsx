@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Container from "./container";
 import NavUserMenu from "../user/nav-user-menu";
 import SiteLogo from "./site-logo";
-import { User } from "@prisma/client";
+import { User } from "better-auth";
 
 type NavbarProps = {
   user?: User;

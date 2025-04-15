@@ -10,7 +10,7 @@ import Providers from "@/providers/providers";
 import { getFavouriteCountries } from "@/server/user";
 import { Country } from "@/types/country";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { User } from "@prisma/client";
+import { User } from "better-auth";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -34,7 +34,7 @@ export default async function RootLayout({
   let favouriteCountries: Country[] = [];
 
   if (session) {
-    const result = await getFavouriteCountries();
+    const result = await getFavouriteCountries(session.user as User);
 
     if (result.data) favouriteCountries = result.data;
   }

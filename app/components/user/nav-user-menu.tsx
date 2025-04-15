@@ -1,5 +1,5 @@
 import { LogIn } from "lucide-react";
-import { User } from "@prisma/client";
+import { User } from "better-auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import UserDropdown from "./user-dropdown";
