@@ -15,7 +15,11 @@ import SignOutBtn from "./sign-out-btn";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const UserDropdown = ({ user }: { user: User }) => {
+type UserDropdownProps = {
+  user: User;
+};
+
+const UserDropdown = ({ user }: UserDropdownProps) => {
   const pathname = usePathname();
 
   return (

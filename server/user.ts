@@ -7,63 +7,20 @@ import { getCountries } from "@/server/countries";
 import { Country } from "@/types/country";
 import { User } from "better-auth";
 
-export const addFavouriteCountryAction = async (countryCode: string) => {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  if (!session) {
+export const getFavouriteCountries = async (user: User) => {
+  if (!user) {
     return {
       success: false,
       error: "Unauthorized",
     };
   }
 
-  const { user } = session;
-
-  try {
-    const favouriteCountries = await prisma.favouriteCountry.create({
-      data: {
-        country: countryCode,
-        user: {
-          connect: {
-            id: user.id,
-          },
-        },
-      },
-    });
-
-    revalidatePath("/");
-
-    return {
-      success: true,
-      data: favouriteCountries,
-    };
-  } catch (error: any) {
-    console.error("Error adding favourite country:", error.message);
-
-    return {
-      success: false,
-      error: error.message || "Failed to add favourite country",
-    };
-  }
-};
-
-export const getFavouriteCountries = async (session: User) => {
-
-  if (!session) {
-    return {
-      success: false,
-      error: "Unauthorized",
-    };
-  }
-
-  const {id: userId} = session;
+  const { id: userId } = user;
 
   try {
     const favouriteCountryCodes = await prisma.favouriteCountry.findMany({
       where: {
-        userId
+        userId,
       },
     });
 
@@ -92,6 +49,52 @@ export const getFavouriteCountries = async (session: User) => {
     return {
       success: false,
       error: error.message || "Failed to get favourite countries",
+    };
+  }
+};
+
+export const addFavouriteCountryAction = async (countryCode: string) => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    return {
+      success: false,
+      error: "Unauthorized",
+    };
+  }
+
+  const { user } = session;
+
+  try {
+    const favouriteCountries = await prisma.favouriteCountry.create({
+      data: {
+        country: countryCode,
+        user: {
+          connect: {
+            id: user.id,
+          },
+        },
+      },
+      select: {
+        country: true,
+        userId: true,
+      },
+    });
+
+    revalidatePath("/");
+
+    return {
+      success: true,
+      data: favouriteCountries,
+    };
+  } catch (error: any) {
+    console.error("Error adding favourite country:", error.message);
+
+    return {
+      success: false,
+      error: error.message || "Failed to add favourite country",
     };
   }
 };
@@ -128,6 +131,10 @@ export const removeFavouriteCountryAction = async (countryCode: string) => {
     const country = await prisma.favouriteCountry.delete({
       where: {
         id: existingCountry.id,
+      },
+      select: {
+        id: true,
+        userId: true,
       },
     });
 

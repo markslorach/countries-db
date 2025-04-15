@@ -34,7 +34,7 @@ export default async function RootLayout({
   let favouriteCountries: Country[] = [];
 
   if (session) {
-    const result = await getFavouriteCountries(session.user as User);
+    const result = await getFavouriteCountries(session.user);
 
     if (result.data) favouriteCountries = result.data;
   }
