@@ -7,17 +7,19 @@ import Heading from "./components/shared/heading";
 import ScrollButton from "./components/shared/scroll-btn";
 
 export default async function Home() {
-  const { data: countries, success, error } = getCountries();
+  const { data, success, error } = await getCountries();
 
   if (!success) {
     return <div>Error: {error}</div>;
   }
 
+  const countries = data as unknown as Country[];
+
   return (
     <Container className="mt-10 mb-20">
       <FiltersContainer />
       <Heading className="mb-5 leading-snug">Countries</Heading>
-      <CountryList countries={countries as unknown as Country[]} />
+      <CountryList countries={countries} />
       <ScrollButton />
     </Container>
   );
