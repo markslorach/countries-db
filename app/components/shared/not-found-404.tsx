@@ -23,7 +23,7 @@ const NotFound404 = () => {
 
         <Button
           asChild
-          className="h-11 bg-[#0F1F43] transition-colors hover:bg-[#0F1F43]/90"
+          className="h-11"
         >
           <Link href="/">Return Home </Link>
         </Button>
