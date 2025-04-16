@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const PrivacyPolicyPage = () => {
   return (
-    <Container className="my-10">
+    <Container className="mt-10 mb-20">
       <Heading className="mb-6">Privacy Policy</Heading>
 
       <div className="max-w-3xl space-y-6">

@@ -21,7 +21,7 @@ const CountryPage = async ({
   if (!country) notFound();
 
   return (
-    <Container className="my-10">
+    <Container className="mt-10 mb-20">
       <PageActions />
       <CountryDetails country={country} />
     </Container>

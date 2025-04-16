@@ -18,7 +18,7 @@ const AccountPage = async () => {
   const isTestAccount = session.user.email === process.env.TEST_USER_EMAIL;
 
   return (
-    <Container className="my-10">
+    <Container className="mt-10 mb-20">
       <div className="mb-10">
         <Heading className="mb-1">Account</Heading>
         <p className="text-muted-foreground">

@@ -13,7 +13,7 @@ const AuthPage = async () => {
   if (session) redirect("/");
 
   return (
-    <Container className="my-10 flex justify-center">
+    <Container className="mt-10 mb-20 flex justify-center">
       <div className="w-full max-w-[400px] sm:p-5 sm:pt-0">
         <div className="mb-10">
           <div className="flex items-center gap-2">
