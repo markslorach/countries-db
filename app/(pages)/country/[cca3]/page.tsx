@@ -16,7 +16,7 @@ const CountryPage = async ({
 }) => {
   const { cca3 } = await params;
 
-  const { data: country } = getCountryByCode(cca3) as CountryResponse;
+  const { data: country } = await getCountryByCode(cca3) as CountryResponse;
 
   if (!country) notFound();
 
