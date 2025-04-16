@@ -10,15 +10,17 @@ type CountryDetailsProps = {
   country: Country;
 };
 
-const CountryDetails = ({ country }: CountryDetailsProps) => {
-  const borderCountries =
-    country.borders?.map((border) => {
-      const { data: country } = getCountryByCode(border);
+const CountryDetails = async ({ country }: CountryDetailsProps) => {
+  const borderPromises =
+    country.borders?.map(async (border) => {
+      const { data: country } = await getCountryByCode(border);
       return {
         code: border,
         name: country?.name.common,
       };
     }) || [];
+
+  const borderCountries = await Promise.all(borderPromises);
 
   return (
     <section className="grid grid-cols-1 gap-10 md:grid-cols-2">
