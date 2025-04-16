@@ -28,7 +28,7 @@ export const getFavouriteCountries = async (user: User) => {
       },
     });
 
-    const { data: countries, success, error } = getCountries();
+    const { data: countries, success, error } = await getCountries();
 
     if (!success) {
       return {
