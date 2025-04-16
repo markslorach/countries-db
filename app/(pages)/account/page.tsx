@@ -17,6 +17,8 @@ const AccountPage = async () => {
 
   const isTestAccount = session.user.email === process.env.TEST_USER_EMAIL;
 
+  const isOAuthUser = session.user.emailVerified;
+
   return (
     <Container className="mt-10 mb-20">
       <div className="mb-10">
@@ -28,7 +30,7 @@ const AccountPage = async () => {
 
       <div className="w-full max-w-[490px] space-y-8">
         <PersonalInfo session={session} />
-        <DangerZone isTestAccount={isTestAccount} />
+        <DangerZone isTestAccount={isTestAccount} isOAuthUser={isOAuthUser} />
       </div>
     </Container>
   );

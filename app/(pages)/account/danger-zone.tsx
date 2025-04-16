@@ -6,9 +6,10 @@ import { CircleAlert } from "lucide-react";
 
 type DeleteAccountProps = {
   isTestAccount: boolean;
+  isOAuthUser: boolean;
 };
 
-const DangerZone = ({ isTestAccount }: DeleteAccountProps) => {
+const DangerZone = ({ isTestAccount, isOAuthUser }: DeleteAccountProps) => {
   return (
     <section>
       <Heading tag="h2" className="mb-4 text-base">
@@ -29,7 +30,10 @@ const DangerZone = ({ isTestAccount }: DeleteAccountProps) => {
           </p>
         </div>
 
-        <DeleteAccountDialog isTestAccount={isTestAccount} />
+        <DeleteAccountDialog
+          isTestAccount={isTestAccount}
+          isOAuthUser={isOAuthUser}
+        />
       </Card>
     </section>
   );

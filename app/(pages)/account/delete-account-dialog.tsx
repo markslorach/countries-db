@@ -14,9 +14,13 @@ import DeleteAccountForm from "./delete-account-form";
 
 interface DeleteAccountDialogProps {
   isTestAccount: boolean;
+  isOAuthUser: boolean;
 }
 
-const DeleteAccountDialog = ({ isTestAccount }: DeleteAccountDialogProps) => {
+const DeleteAccountDialog = ({
+  isTestAccount,
+  isOAuthUser,
+}: DeleteAccountDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -25,7 +29,7 @@ const DeleteAccountDialog = ({ isTestAccount }: DeleteAccountDialogProps) => {
         <Button
           variant="destructive"
           className="h-11 w-fit"
-          disabled={isTestAccount}
+          disabled={isTestAccount || isOAuthUser}
         >
           Delete Account
         </Button>
