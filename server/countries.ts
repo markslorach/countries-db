@@ -24,7 +24,8 @@ export const getCountries = async () => {
     },
     ["all-countries"],
     {
-      revalidate: 86400,
+      revalidate: 3600,
+      
       tags: ["countries"],
     }
   )();
@@ -51,7 +52,7 @@ export const getCountryByCode = async (code: string) => {
     },
     [`country-${code}`],
     {
-      revalidate: 86400,
+      revalidate: 3600,
       tags: ["countries", `country-${code}`],
     }
   )();

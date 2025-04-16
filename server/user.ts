@@ -65,7 +65,7 @@ export const getCachedFavouriteCountries = async (user: User) => {
     [cacheKey],
     {
       tags: [cacheKey],
-      revalidate: 1800,
+      revalidate: 300,
     },
   )();
 
