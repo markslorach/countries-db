@@ -5,7 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Country } from "@/types/country";
 import { Star } from "lucide-react";
 
-const FavouriteButton = ({ country }: { country: Country }) => {
+type FavouriteButtonProps = {
+  country: Country;
+  className?: string;
+};
+
+const FavouriteButton = ({ country, className }: FavouriteButtonProps) => {
   const { favouriteCountries, addFavouriteCountry, removeFavouriteCountry } =
     useFavouriteCountriesContext();
 
@@ -29,7 +34,10 @@ const FavouriteButton = ({ country }: { country: Country }) => {
     <form action={action}>
       <Button
         onClick={handleClick}
-        className="group bg-gray-100/70 shadow-none transition-colors hover:bg-gray-100/70"
+        className={cn(
+          "group bg-gray-100/70 shadow-none transition-colors hover:bg-gray-100/70",
+          className,
+        )}
         size="icon"
         type="submit"
       >

@@ -5,7 +5,7 @@ import { Earth, MapPin, UsersRound, Coins, Languages } from "lucide-react";
 import Heading from "@/app/components/shared/heading";
 import { getCountryByCode } from "@/server/countries";
 import { Country } from "@/types/country";
-
+import FavouriteButton from "@/app/components/user/favourite-btn";
 type CountryDetailsProps = {
   country: Country;
 };
@@ -33,9 +33,16 @@ const CountryDetails = async ({ country }: CountryDetailsProps) => {
       />
 
       <div>
-        <Heading tag="h1" className="-mt-2 mb-1 text-2xl font-semibold">
-          {country.name.common}
-        </Heading>
+        <div className="-mt-2 flex items-center justify-between">
+          <Heading tag="h1" className="text-2xl font-semibold">
+            {country.name.common}
+          </Heading>
+
+          <FavouriteButton
+            country={country}
+            className="bg-gray-200/40 hover:bg-gray-200/40"
+          />
+        </div>
 
         <span className="text-gray-500">{country.name.official}</span>
 
