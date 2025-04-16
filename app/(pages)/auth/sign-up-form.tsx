@@ -62,7 +62,7 @@ const SignUpForm = () => {
                 <Input
                   placeholder="Enter your first name"
                   {...field}
-                  className="h-11"
+                  className="h-11 text-sm sm:text-base"
                 />
               </FormControl>
               <FormMessage />
@@ -82,7 +82,7 @@ const SignUpForm = () => {
                 <Input
                   placeholder="example@email.com"
                   {...field}
-                  className="h-11"
+                  className="h-11 text-sm sm:text-base"
                 />
               </FormControl>
               <FormMessage />
@@ -104,7 +104,7 @@ const SignUpForm = () => {
                     placeholder="••••••••"
                     type={showPassword ? "text" : "password"}
                     {...field}
-                    className="h-11"
+                    className="h-11 text-sm sm:text-base"
                   />
                   <ShowPasswordButton
                     showPassword={showPassword}
@@ -131,7 +131,7 @@ const SignUpForm = () => {
                     placeholder="••••••••"
                     type={showConfirmPassword ? "text" : "password"}
                     {...field}
-                    className="h-11"
+                    className="h-11 text-sm sm:text-base"
                   />
                   <ShowPasswordButton
                     showPassword={showConfirmPassword}

@@ -56,7 +56,7 @@ const SignInForm = () => {
                 <Input
                   placeholder="example@email.com"
                   {...field}
-                  className="h-11"
+                  className="h-11 text-sm sm:text-base"
                 />
               </FormControl>
               <FormMessage />
@@ -76,7 +76,7 @@ const SignInForm = () => {
                     placeholder="••••••••"
                     type={showPassword ? "text" : "password"}
                     {...field}
-                    className="h-11"
+                    className="h-11 text-sm sm:text-base"
                   />
                   <ShowPasswordButton
                     showPassword={showPassword}
