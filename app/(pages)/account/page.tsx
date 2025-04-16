@@ -22,7 +22,7 @@ const AccountPage = async () => {
       <div className="mb-10">
         <Heading className="mb-1">Account</Heading>
         <p className="text-muted-foreground">
-          Manage your account settings and preferences.
+          Manage your account settings and preferences
         </p>
       </div>
 
