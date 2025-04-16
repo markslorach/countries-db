@@ -32,19 +32,21 @@ const CountryDetails = async ({ country }: CountryDetailsProps) => {
         className="w-full rounded-xs border border-gray-300/50 object-contain shadow-xs"
       />
 
-      <div>
-        <div className="-mt-2 flex items-center justify-between">
-          <Heading tag="h1" className="text-2xl font-semibold">
-            {country.name.common}
-          </Heading>
-
+      <div className="relative">
+        <div className="absolute top-0 right-0">
           <FavouriteButton
             country={country}
             className="bg-gray-200/40 hover:bg-gray-200/40"
           />
         </div>
 
-        <span className="text-gray-500">{country.name.official}</span>
+        <div>
+          <Heading tag="h1" className="text-2xl font-semibold">
+            {country.name.common}
+          </Heading>
+
+          <span className="text-gray-500">{country.name.official}</span>
+        </div>
 
         <div className="mt-10 grid grid-cols-1 md:gap-2 lg:grid-cols-2">
           <div className="space-y-3">
