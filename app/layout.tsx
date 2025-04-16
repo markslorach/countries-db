@@ -54,6 +54,7 @@ export default async function RootLayout({
             <Footer />
           </Providers>
         </NuqsAdapter>
+
         <Toaster
           position="bottom-right"
           visibleToasts={1}
