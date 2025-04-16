@@ -20,10 +20,18 @@ const PersonalInfo = ({ session }: PersonalInfoProps) => {
 
       <div className="space-y-4">
         <Label className="mb-3">Name</Label>
-        <Input value={session.user?.name} disabled className="h-11 bg-white" />
+        <Input
+          value={session.user?.name}
+          disabled
+          className="h-11 bg-white text-sm sm:text-base"
+        />
 
         <Label className="mb-3">Email</Label>
-        <Input value={session.user?.email} disabled className="h-11 bg-white" />
+        <Input
+          value={session.user?.email}
+          disabled
+          className="h-11 bg-white text-sm sm:text-base"
+        />
       </div>
     </section>
   );
