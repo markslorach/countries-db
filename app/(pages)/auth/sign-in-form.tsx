@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import GoogleLogo from "@/components/ui/google-logo";
 import { signIn } from "@/server/auth";
 import { signInFormSchema, SignInFormType } from "@/utils/validationSchemas";
 import ShowPasswordButton from "./show-password-btn";
+import GoogleSignIn from "./google-sign-in";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -97,16 +97,10 @@ const SignInForm = () => {
           >
             {`${form.formState.isSubmitting ? "Signing In..." : "Sign In"}`}
           </Button>
+
           <div className="bg-border mx-4 h-11 w-[1px]" />
-          <Button
-            disabled
-            variant="outline"
-            className="h-11 flex-1 font-semibold"
-            type="button"
-          >
-            <GoogleLogo />
-            Google
-          </Button>
+
+          <GoogleSignIn />
         </div>
       </form>
     </Form>
