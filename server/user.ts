@@ -1,11 +1,12 @@
 "use server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { headers } from "next/headers";
 import { getCountries } from "@/server/countries";
 import { Country } from "@/types/country";
 import { User } from "better-auth";
+import { unstable_cache } from "next/cache";
 
 export const getFavouriteCountries = async (user: User) => {
   if (!user) {
@@ -21,6 +22,9 @@ export const getFavouriteCountries = async (user: User) => {
     const favouriteCountryCodes = await prisma.favouriteCountry.findMany({
       where: {
         userId,
+      },
+      select: {
+        country: true,
       },
     });
 
@@ -53,6 +57,21 @@ export const getFavouriteCountries = async (user: User) => {
   }
 };
 
+export const getCachedFavouriteCountries = async (user: User) => {
+  const cacheKey = `user-${user?.id}-favourites`;
+
+  const cachedResult = unstable_cache(
+    async () => getFavouriteCountries(user),
+    [cacheKey],
+    {
+      tags: [cacheKey],
+      revalidate: 1800,
+    },
+  )();
+
+  return cachedResult;
+};
+
 export const addFavouriteCountryAction = async (countryCode: string) => {
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -83,7 +102,7 @@ export const addFavouriteCountryAction = async (countryCode: string) => {
       },
     });
 
-    revalidatePath("/");
+    revalidateTag(`user-${user.id}-favourites`);
 
     return {
       success: true,
@@ -138,7 +157,7 @@ export const removeFavouriteCountryAction = async (countryCode: string) => {
       },
     });
 
-    revalidatePath("/");
+    revalidateTag(`user-${user.id}-favourites`);
 
     return {
       success: true,
