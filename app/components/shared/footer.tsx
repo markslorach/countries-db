@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <Heading tag="h3" className="mb-2 text-sm font-medium">
+            <Heading tag="h3" className="mb-1 text-sm font-medium">
               Source Code
             </Heading>
             <Link
