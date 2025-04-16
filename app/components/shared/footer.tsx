@@ -40,11 +40,10 @@ const Footer = () => {
             </Heading>
             <Link
               href="https://github.com/markslorach/countries-db"
-              className="text-muted-foreground flex items-center gap-1 text-sm underline-offset-2 hover:underline"
+              className="text-muted-foreground text-sm underline-offset-2 hover:underline"
               target="_blank"
             >
-              <Github className="size-4" />
-              <span>GitHub</span>
+              GitHub
             </Link>
           </div>
         </div>
