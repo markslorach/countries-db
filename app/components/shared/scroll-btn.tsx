@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react"
+import { motion, AnimatePresence } from "motion/react";
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);
@@ -11,7 +11,9 @@ const ScrollButton = () => {
     setVisible(scrolled > 300);
   };
 
-  const scrollToTop = () => {
+  const scrollToTop = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    
     window.scrollTo({
       top: 0,
       behavior: "smooth",
