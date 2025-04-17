@@ -4,6 +4,7 @@ import GoogleLogo from "@/components/ui/google-logo";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { toast } from "sonner";
+
 const GoogleSignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,8 +16,9 @@ const GoogleSignIn = () => {
         provider: "google",
       });
     } catch (error) {
+      console.error(error);
       toast.error("Failed to sign in with Google");
-      
+
       setIsLoading(false);
     }
   };
