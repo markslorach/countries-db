@@ -11,8 +11,8 @@ const Footer = () => {
             <Heading tag="h3" className="mb-2 text-sm font-medium">
               Data Sources
             </Heading>
-            <ul className="text-muted-foreground space-y-1 text-sm">
-              <li>
+            <div className="text-muted-foreground space-y-1 text-sm">
+              <div>
                 <Link
                   href="https://restcountries.com"
                   className="underline-offset-2 hover:underline"
@@ -20,8 +20,8 @@ const Footer = () => {
                 >
                   REST Countries API
                 </Link>
-              </li>
-              <li>
+              </div>
+              <div>
                 <Link
                   href="https://flagpedia.net"
                   className="underline-offset-2 hover:underline"
@@ -29,21 +29,25 @@ const Footer = () => {
                 >
                   Flagpedia
                 </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
 
           <div>
-            <Heading tag="h3" className="mb-1 text-sm font-medium">
+            <Heading tag="h3" className="mb-2 text-sm font-medium">
               Source Code
             </Heading>
-            <Link
-              href="https://github.com/markslorach/countries-db"
-              className="text-muted-foreground text-sm underline-offset-2 hover:underline"
-              target="_blank"
-            >
-              GitHub
-            </Link>
+            <div className="text-muted-foreground text-sm">
+              <div>
+                <Link
+                  href="https://github.com/markslorach/countries-db"
+                  className="underline-offset-2 hover:underline"
+                  target="_blank"
+                >
+                  GitHub
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
