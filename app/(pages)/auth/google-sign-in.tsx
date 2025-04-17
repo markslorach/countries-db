@@ -3,18 +3,22 @@ import { Button } from "@/components/ui/button";
 import GoogleLogo from "@/components/ui/google-logo";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
-
+import { toast } from "sonner";
 const GoogleSignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleSignIn = async () => {
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    await authClient.signIn.social({
-      provider: "google",
-    });
-
-    setIsLoading(false);
+      await authClient.signIn.social({
+        provider: "google",
+      });
+    } catch (error) {
+      toast.error("Failed to sign in with Google");
+      
+      setIsLoading(false);
+    }
   };
 
   return (
