@@ -41,7 +41,7 @@ const FavouriteButton = ({ country, className }: FavouriteButtonProps) => {
           <Button
             onClick={handleClick}
             className={cn(
-              "group bg-gray-100/70 shadow-none transition-colors hover:bg-gray-100/70",
+              "group bg-gray-100 shadow-none transition-colors hover:bg-gray-100",
               className,
             )}
             size="icon"
@@ -50,7 +50,7 @@ const FavouriteButton = ({ country, className }: FavouriteButtonProps) => {
             <Star
               className={cn("size-6", {
                 "fill-blue-400 text-blue-400": isFavourite,
-                "text-gray-400/70": !isFavourite,
+                "text-gray-400": !isFavourite,
               })}
             />
           </Button>
