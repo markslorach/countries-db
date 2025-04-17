@@ -43,6 +43,11 @@ const SignInForm = () => {
     router.refresh();
   };
 
+  const handleFillTestCredentials = () => {
+    form.setValue("email", "test@countriesdb.com");
+    form.setValue("password", "countriesdb");
+  };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -51,7 +56,15 @@ const SignInForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <Label>Email</Label>
+              <div className="flex items-center justify-between">
+                <Label>Email</Label>
+                <span
+                  onClick={handleFillTestCredentials}
+                  className="cursor-pointer text-[13px] text-blue-500 underline underline-offset-2"
+                >
+                  Fill test credentials
+                </span>
+              </div>
               <FormControl>
                 <Input
                   placeholder="example@email.com"
