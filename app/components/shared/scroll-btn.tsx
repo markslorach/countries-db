@@ -1,17 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
+    setVisible(scrolled > 300);
   };
 
   const scrollToTop = () => {
@@ -30,14 +27,20 @@ const ScrollButton = () => {
   }, []);
 
   return (
-    <button
-      className={`shadow-sm opacity-90 z-30 cursor-pointer bg-black/60 sm:bg-black sm:opacity-50 sm:hover:opacity-70 transition-opacity duration-300 rounded-full fixed sm:bottom-24 sm:right-10 bottom-24 right-4 p-2.5 ${
-        visible ? "" : "hidden"
-      }`}
-      onClick={scrollToTop}
-    >
-      <ChevronUp className="text-white" />
-    </button>
+    <AnimatePresence>
+      {visible && (
+        <motion.button
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          onClick={scrollToTop}
+          className="group fixed right-0 bottom-24 z-30 cursor-pointer rounded-l-xs border bg-gray-100 p-3 shadow-xs"
+        >
+          <ChevronUp />
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 };
 
