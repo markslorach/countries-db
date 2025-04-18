@@ -12,7 +12,6 @@ const CountryCardImage = ({ country }: CountryCardImageProps) => {
       <Image
         width={300}
         height={200}
-        priority
         src={
           country.flags.svg || country.flags.png || "/images/no-image-found.png"
         }

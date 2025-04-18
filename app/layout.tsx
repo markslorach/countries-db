@@ -42,7 +42,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSans.className} flex min-h-screen flex-col bg-gray-50 sm:overflow-y-scroll`}
+        className={`${notoSans.className} flex min-h-screen flex-col scroll-smooth bg-gray-50 sm:overflow-y-scroll`}
       >
         <NuqsAdapter>
           <Providers
