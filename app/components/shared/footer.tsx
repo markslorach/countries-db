@@ -65,7 +65,7 @@ const Footer = () => {
           </p>
           <Link
             href="/privacy-policy"
-            className="text-muted-foreground text-[13px] underline underline-offset-2"
+            className="text-muted-foreground text-[13px] hover:underline underline-offset-2"
           >
             Privacy Policy
           </Link>
