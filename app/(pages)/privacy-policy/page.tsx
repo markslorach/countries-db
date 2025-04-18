@@ -88,11 +88,27 @@ const PrivacyPolicyPage = () => {
             Data Retention and Account Deletion
           </h2>
           <p className="text-gray-600">
-            You have the right to delete your account at any time through the
-            account settings page. Upon deletion, all personal information and
-            associated data will be permanently removed from my servers
-            immediately.
+            You have the right to delete your account at any time.
           </p>
+          <ul className="mt-2 ml-6 list-disc text-gray-600">
+            <li>
+              If you signed up using email and password, you can delete your
+              account directly from the account settings page.
+            </li>
+            <li>
+              If you registered via Google Sign-In, account deletion is
+              currently unavailable through the interface. However, you can
+              request deletion by emailing me at{" "}
+              <Link
+                href="mailto:hello@markslorach.com"
+                className="text-blue-500 underline underline-offset-3"
+              >
+                hello@markslorach.com
+              </Link>{" "}
+              and I will promptly remove all your personal data from my
+              database.
+            </li>
+          </ul>
         </section>
 
         <section>

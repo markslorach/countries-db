@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2">
           <p className="text-muted-foreground text-[13px]">
             Created by{" "}
             <Link
@@ -63,6 +63,12 @@ const Footer = () => {
             </Link>
             .
           </p>
+          <Link
+            href="/privacy-policy"
+            className="text-muted-foreground text-[13px] underline underline-offset-2"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </Container>
     </footer>
