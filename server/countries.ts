@@ -25,9 +25,8 @@ export const getCountries = async () => {
     ["all-countries"],
     {
       revalidate: 3600,
-      
       tags: ["countries"],
-    }
+    },
   )();
 };
 
@@ -42,7 +41,10 @@ export const getCountryByCode = async (code: string) => {
           data: country,
         };
       } catch (error: any) {
-        console.error(`Error finding country with code ${code}:`, error.message);
+        console.error(
+          `Error finding country with code ${code}:`,
+          error.message,
+        );
 
         return {
           success: false,
@@ -54,6 +56,35 @@ export const getCountryByCode = async (code: string) => {
     {
       revalidate: 3600,
       tags: ["countries", `country-${code}`],
+    },
+  )();
+};
+
+export const getBorderCountries = async (borderCountryCodes: string[] = []) => {
+  return unstable_cache(
+    async () => {
+      try {
+        const borderCountries = await Promise.all(
+          borderCountryCodes.map(async (borderCountryCode) => {
+            const { data: borderCountry } =
+              await getCountryByCode(borderCountryCode);
+
+            return {
+              code: borderCountryCode,
+              name: borderCountry?.name.common,
+            };
+          }),
+        );
+        return borderCountries;
+      } catch (error: any) {
+        console.error("Error fetching border countries:", error.message);
+        return [];
+      }
+    },
+    [`border-countries-${borderCountryCodes.join(",")}`],
+    {
+      revalidate: 3600,
+      tags: ["border-countries"],
     }
   )();
 };

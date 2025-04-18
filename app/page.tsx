@@ -5,9 +5,10 @@ import CountryList from "./components/country-list";
 import FiltersContainer from "./components/country-filters/filters-container";
 import Heading from "./components/shared/heading";
 import ScrollButton from "./components/shared/scroll-btn";
+import { use } from "react";
 
-export default async function Home() {
-  const { data, success, error } = await getCountries();
+export default function Home() {
+  const { data, success, error } = use(getCountries());
 
   if (!success) {
     return <div>Error: {error}</div>;

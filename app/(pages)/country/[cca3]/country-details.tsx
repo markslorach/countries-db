@@ -3,24 +3,17 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Earth, MapPin, UsersRound, Coins, Languages } from "lucide-react";
 import Heading from "@/app/components/shared/heading";
-import { getCountryByCode } from "@/server/countries";
+import { getBorderCountries } from "@/server/countries";
 import { Country } from "@/types/country";
 import FavouriteButton from "@/app/components/user/favourite-btn";
+import { use } from "react";
+
 type CountryDetailsProps = {
   country: Country;
 };
 
-const CountryDetails = async ({ country }: CountryDetailsProps) => {
-  const borderPromises =
-    country.borders?.map(async (border) => {
-      const { data: country } = await getCountryByCode(border);
-      return {
-        code: border,
-        name: country?.name.common,
-      };
-    }) || [];
-
-  const borderCountries = await Promise.all(borderPromises);
+const CountryDetails = ({ country }: CountryDetailsProps) => {
+  const borderCountries = use(getBorderCountries(country.borders));
 
   return (
     <section className="grid grid-cols-1 gap-10 md:grid-cols-2">
@@ -132,14 +125,16 @@ const CountryDetails = async ({ country }: CountryDetailsProps) => {
               borderCountries.map(
                 (border) =>
                   border.name && (
-                    <Link href={`/country/${border.code}`} key={border.code}>
-                      <Button
-                        variant="outline"
-                        className="cursor-pointer border border-gray-300/50"
-                      >
+                    <Button
+                      asChild
+                      key={border.code}
+                      variant="outline"
+                      className="cursor-pointer border border-gray-300/50"
+                    >
+                      <Link href={`/country/${border.code}`}>
                         {border.name}
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   ),
               )
             ) : (
