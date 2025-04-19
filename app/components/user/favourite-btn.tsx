@@ -46,6 +46,7 @@ const FavouriteButton = ({ country, className }: FavouriteButtonProps) => {
             )}
             size="icon"
             type="submit"
+            aria-label={isFavourite ? "Remove from favourites" : "Add to favourites"}
           >
             <Star
               className={cn("size-6", {

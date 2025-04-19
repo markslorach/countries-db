@@ -25,7 +25,12 @@ const UserDropdown = ({ user }: UserDropdownProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="cursor-pointer">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="cursor-pointer"
+          aria-label="User menu"
+        >
           <UserRound className="size-6" />
         </Button>
       </DropdownMenuTrigger>

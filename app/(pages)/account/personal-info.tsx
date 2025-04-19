@@ -24,6 +24,7 @@ const PersonalInfo = ({ session }: PersonalInfoProps) => {
           value={session.user?.name}
           disabled
           className="h-11 bg-white text-sm sm:text-base"
+          aria-label="Name input"
         />
 
         <Label className="mb-3">Email</Label>
@@ -31,6 +32,7 @@ const PersonalInfo = ({ session }: PersonalInfoProps) => {
           value={session.user?.email}
           disabled
           className="h-11 bg-white text-sm sm:text-base"
+          aria-label="Email input"
         />
       </div>
     </section>

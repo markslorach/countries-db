@@ -8,7 +8,7 @@ const Footer = () => {
       <Container className="flex flex-col space-y-6">
         <div className="grid w-full grid-cols-2 border-b pb-6 sm:flex sm:w-fit sm:gap-18">
           <div>
-            <Heading tag="h3" className="mb-2 text-sm font-medium">
+            <Heading tag="h2" className="mb-2 text-sm font-medium">
               Data Sources
             </Heading>
             <div className="text-muted-foreground space-y-1 text-sm">
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <Heading tag="h3" className="mb-2 text-sm font-medium">
+            <Heading tag="h2" className="mb-2 text-sm font-medium">
               Source Code
             </Heading>
             <div className="text-muted-foreground text-sm">
@@ -56,7 +56,7 @@ const Footer = () => {
             Created by{" "}
             <Link
               href="https://markslorach.com"
-              className="text-blue-500 underline underline-offset-2"
+              className="text-blue-700 underline underline-offset-2"
               target="_blank"
             >
               Mark Slorach
@@ -65,7 +65,7 @@ const Footer = () => {
           </p>
           <Link
             href="/privacy-policy"
-            className="text-muted-foreground text-[13px] hover:underline underline-offset-2"
+            className="text-muted-foreground text-[13px] underline-offset-2 hover:underline"
           >
             Privacy Policy
           </Link>

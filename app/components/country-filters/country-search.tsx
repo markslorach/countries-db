@@ -16,6 +16,7 @@ const CountrySearch = () => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         className="h-14 bg-white px-5 pl-11 text-sm shadow-xs sm:w-72"
+        aria-label="Country search"
       />
     </div>
   );

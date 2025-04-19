@@ -56,6 +56,7 @@ const DeleteAccountForm = ({ isOpen, setIsOpen }: DeleteAccountActionProps) => {
         <FormField
           control={form.control}
           name="password"
+          aria-label="Password input"
           render={({ field }) => (
             <FormItem>
               <Label>Please enter your password to confirm.</Label>
@@ -104,6 +105,7 @@ const DeleteAccountForm = ({ isOpen, setIsOpen }: DeleteAccountActionProps) => {
             variant="destructive"
             className="h-11"
             disabled={form.formState.isSubmitting}
+            aria-label="Delete account button"
           >
             {`${form.formState.isSubmitting ? "Deleting Account..." : "Delete Account"}`}
           </Button>

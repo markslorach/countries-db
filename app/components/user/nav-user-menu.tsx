@@ -12,7 +12,13 @@ const NavUserMenu = ({ user }: NavUserMenuProps) => {
   return (
     <div>
       {!user ? (
-        <Button asChild variant="ghost" size="icon" className="cursor-pointer">
+        <Button
+          asChild
+          variant="ghost"
+          size="icon"
+          className="cursor-pointer"
+          aria-label="Login"
+        >
           <Link href="/auth">
             <LogIn className="size-6" />
           </Link>

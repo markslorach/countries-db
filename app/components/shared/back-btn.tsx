@@ -12,6 +12,7 @@ const BackButton = () => {
       variant="outline"
       size="icon"
       className="size-14 cursor-pointer border border-gray-300/50"
+      aria-label="Back button"
     >
       <ChevronLeft className="size-6" />
     </Button>

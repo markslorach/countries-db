@@ -30,6 +30,7 @@ const DeleteAccountDialog = ({
           variant="destructive"
           className="h-11 w-fit"
           disabled={isTestAccount || isOAuthUser}
+          aria-label="Delete account modal trigger"
         >
           Delete Account
         </Button>
