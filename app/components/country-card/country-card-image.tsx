@@ -12,9 +12,7 @@ const CountryCardImage = ({ country }: CountryCardImageProps) => {
       <Image
         width={300}
         height={200}
-        src={
-          country.flags.svg || country.flags.png || "/images/no-image-found.png"
-        }
+        src={country.flags.svg || "/images/no-image-found.png"}
         alt={`Flag of ${country.name.common}`}
         className="h-full w-full rounded-xs border border-gray-300/50 object-contain shadow-xs dark:border-gray-500/50"
       />

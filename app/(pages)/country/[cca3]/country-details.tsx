@@ -18,7 +18,7 @@ const CountryDetails = ({ country }: CountryDetailsProps) => {
   return (
     <section className="grid grid-cols-1 gap-10 md:grid-cols-2">
       <Image
-        src={country.flags.svg || ""}
+        src={country.flags.svg || "/images/no-image-found.png"}
         alt={country.name.common}
         width={300}
         height={200}
