@@ -58,13 +58,15 @@ const SignInForm = () => {
         <FormField
           control={form.control}
           name="email"
+          aria-label="Email input"
           render={({ field }) => (
             <FormItem>
               <div className="flex items-center justify-between">
                 <Label>Email</Label>
                 <span
                   onClick={handleFillTestCredentials}
-                  className="cursor-pointer text-[13px] text-blue-500 underline underline-offset-2"
+                  className="cursor-pointer text-[13px] text-blue-700 underline underline-offset-2"
+                  aria-label="Fill test credentials"
                 >
                   Fill test credentials
                 </span>
@@ -84,6 +86,7 @@ const SignInForm = () => {
         <FormField
           control={form.control}
           name="password"
+          aria-label="Password input"
           render={({ field }) => (
             <FormItem>
               <Label>Password</Label>
@@ -111,6 +114,7 @@ const SignInForm = () => {
             type="submit"
             className="h-11 flex-1 cursor-pointer"
             disabled={form.formState.isSubmitting}
+            aria-label={`${form.formState.isSubmitting ? "Signing In..." : "Sign In"}`}
           >
             {`${form.formState.isSubmitting ? "Signing In..." : "Sign In"}`}
           </Button>

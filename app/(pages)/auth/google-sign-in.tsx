@@ -29,6 +29,7 @@ const GoogleSignIn = () => {
       variant="outline"
       className="h-11 flex-1 font-semibold"
       type="button"
+      aria-label="Sign in with Google"
     >
       <GoogleLogo />
       {isLoading ? "Loading...." : "Google"}

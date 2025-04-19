@@ -15,6 +15,7 @@ const ShowPasswordButton = ({ showPassword, setShowPassword }: ShowPasswordProps
       variant="ghost"
       size="icon"
       tabIndex={-1}
+      aria-label={showPassword ? "Hide password" : "Show password"}
       className="text-muted-foreground absolute top-1/2 right-2 -translate-y-1/2 hover:bg-transparent"
     >
       {showPassword ? (

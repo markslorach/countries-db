@@ -57,6 +57,7 @@ const SignUpForm = () => {
         <FormField
           control={form.control}
           name="name"
+          aria-label="First name input"
           render={({ field }) => (
             <FormItem>
               <Label>
@@ -77,6 +78,7 @@ const SignUpForm = () => {
         <FormField
           control={form.control}
           name="email"
+          aria-label="Email input"
           render={({ field }) => (
             <FormItem>
               <Label>
@@ -97,6 +99,7 @@ const SignUpForm = () => {
         <FormField
           control={form.control}
           name="password"
+          aria-label="Password input"
           render={({ field }) => (
             <FormItem>
               <Label>
@@ -124,6 +127,7 @@ const SignUpForm = () => {
         <FormField
           control={form.control}
           name="confirmPassword"
+          aria-label="Confirm password input"
           render={({ field }) => (
             <FormItem>
               <Label>
@@ -153,6 +157,7 @@ const SignUpForm = () => {
             type="submit"
             className="h-11 flex-1 cursor-pointer"
             disabled={form.formState.isSubmitting}
+            aria-label={`${form.formState.isSubmitting ? "Signing Up..." : "Sign Up"}`}
           >
             {`${form.formState.isSubmitting ? "Signing Up..." : "Sign Up"}`}
           </Button>
