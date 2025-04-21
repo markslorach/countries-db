@@ -6,6 +6,7 @@ import FiltersContainer from "./components/country-filters/filters-container";
 import Heading from "./components/shared/heading";
 import ScrollButton from "./components/shared/scroll-btn";
 import { use } from "react";
+import SortButton from "./components/shared/sort-btn";
 
 export default function Home() {
   const { data, success, error } = use(getCountries());
@@ -19,7 +20,10 @@ export default function Home() {
   return (
     <Container className="mt-10 mb-20">
       <FiltersContainer />
-      <Heading className="mb-5 leading-snug">Countries</Heading>
+      <div className="mb-4 flex items-center justify-between">
+        <Heading className="leading-snug">Countries</Heading>
+        <SortButton />
+      </div>
       <CountryList countries={countries} />
       <ScrollButton />
     </Container>

@@ -8,7 +8,7 @@ type CountryListProps = {
 };
 
 const CountryList = ({ countries }: CountryListProps) => {
-  const { debouncedSearchQuery, selectedRegion } = useFilter();
+  const { debouncedSearchQuery, selectedRegion, sortDirection } = useFilter();
 
   const filteredCountries = countries?.filter((country) => {
     const matchesSearch = country.name.common
@@ -21,13 +21,19 @@ const CountryList = ({ countries }: CountryListProps) => {
     return matchesSearch && matchesRegion;
   });
 
-  if (filteredCountries?.length === 0) {
+  const sortedCountries = filteredCountries?.sort((a, b) => {
+    return sortDirection === "asc"
+      ? a.name.common.localeCompare(b.name.common)
+      : b.name.common.localeCompare(a.name.common);
+  });
+
+  if (sortedCountries?.length === 0) {
     return <p className="text-gray-500">No countries found.</p>;
   }
 
   return (
     <section className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {filteredCountries?.map((country) => (
+      {sortedCountries?.map((country) => (
         <CountryCard key={country.cca3} country={country as Country} />
       ))}
     </section>

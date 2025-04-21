@@ -5,6 +5,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import FavouritesContainer from "./favourites-container";
+import SortButton from "@/app/components/shared/sort-btn";
 
 const FavouriteCountriesPage = async () => {
   const session = await auth.api.getSession({
@@ -18,7 +19,10 @@ const FavouriteCountriesPage = async () => {
   return (
     <Container className="mt-10 mb-20">
       <FiltersContainer />
-      <Heading className="mb-5 leading-snug">Favourite Countries</Heading>
+      <div className="mb-4 flex items-center justify-between">
+        <Heading className="leading-snug">Favourite Countries</Heading>
+        <SortButton />
+      </div>
       <FavouritesContainer />
     </Container>
   );

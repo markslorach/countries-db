@@ -3,7 +3,7 @@ import CountrySearch from "./country-search";
 
 const FiltersContainer = () => {
   return (
-    <section className="mb-10 flex flex-wrap justify-between gap-4 sm:flex-nowrap">
+    <section className="mb-8 flex flex-wrap justify-between gap-4 sm:flex-nowrap">
       <CountrySearch />
       <RegionSelect />
     </section>

@@ -5,13 +5,9 @@ export const getCountries = async () => {
   return unstable_cache(
     async () => {
       try {
-        const sortedData = [...data].sort((a, b) =>
-          a.name.common.localeCompare(b.name.common),
-        );
-
         return {
           success: true,
-          data: sortedData,
+          data,
         };
       } catch (error: any) {
         console.error("Error fetching countries data:", error.message);
@@ -85,6 +81,6 @@ export const getBorderCountries = async (borderCountryCodes: string[] = []) => {
     {
       revalidate: 3600,
       tags: ["border-countries"],
-    }
+    },
   )();
 };
