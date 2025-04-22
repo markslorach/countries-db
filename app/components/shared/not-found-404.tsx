@@ -8,7 +8,7 @@ const NotFound404 = () => {
     <div className="flex flex-col items-center gap-10">
       <Image
         src="/images/planet.svg"
-        alt="Not Found"
+        alt="Not Found Image"
         width={150}
         height={150}
         className="size-40"
@@ -21,10 +21,7 @@ const NotFound404 = () => {
           you&apos;re lost! <span>👽</span>
         </Heading>
 
-        <Button
-          asChild
-          className="h-11"
-        >
+        <Button asChild className="h-11" aria-label="Return Home">
           <Link href="/">Return Home </Link>
         </Button>
       </div>
