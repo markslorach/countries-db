@@ -18,7 +18,7 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Countries DB",
+  title: "CountriesDB",
   description: "Explore the countries of the world.",
 };
 
