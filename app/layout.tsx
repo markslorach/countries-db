@@ -20,6 +20,7 @@ const notoSans = Noto_Sans({
 export const metadata: Metadata = {
   title: "CountriesDB",
   description: "Explore the countries of the world.",
+  authors: [{ name: "Mark Slorach", url: "https://github.com/markslorach" }],
 };
 
 export default async function RootLayout({
