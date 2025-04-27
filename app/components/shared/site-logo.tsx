@@ -1,14 +1,17 @@
 import Link from "next/link";
-import { GlobeAsiaAustraliaIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const SiteLogo = () => {
   return (
-    <Link href="/" className="flex items-center gap-1.5">
-      <GlobeAsiaAustraliaIcon
-        className="size-7 text-blue-500"
-        strokeWidth="1.5"
+    <Link href="/" className="flex items-center gap-2">
+      <Image
+        src="/images/earth.svg"
+        alt="CountriesDB Logo"
+        width={32}
+        height={32}
+        className="size-6 text-blue-500"
       />
-      <span className="font-semibold">Countries DB</span>
+      <span className="font-semibold">CountriesDB</span>
     </Link>
   );
 };
