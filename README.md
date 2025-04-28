@@ -63,8 +63,7 @@ pnpm start
 
 ## Tech Stack
 
-- React 19
-- Next.js 15
+- Next.js 15 (React 19)
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
