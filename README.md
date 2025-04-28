@@ -61,13 +61,6 @@ pnpm build
 pnpm start
 ```
 
-## Usage
-
-- Search for countries by name
-- Filter by region (e.g., Africa, Europe, Asia)
-- Click a country card for more information
-- Sign in to save your favourite countries
-
 ## Tech Stack
 
 - React 19
