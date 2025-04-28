@@ -41,7 +41,7 @@ TEST_USER_EMAIL=your_test_user_email # for test/demo accounts
 - `DATABASE_URL`: PostgreSQL connection string for Prisma
 - `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: for Google authentication
 - `NEXT_PUBLIC_BETTER_AUTH_URL`: Better Auth service URL
-- `TEST_USER_EMAIL`: (optional) for test/demo user logic
+- `TEST_USER_EMAIL`: for test/demo user logic
 
 ### Development
 
