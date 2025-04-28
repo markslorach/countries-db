@@ -2,6 +2,7 @@
 import { useFilter } from "@/hooks/useFilter";
 import { Country } from "@/types/country";
 import CountryCard from "./country-card/country-card";
+import { motion } from "motion/react";
 
 type CountryListProps = {
   countries: Country[];
@@ -31,11 +32,16 @@ const CountryList = ({ countries }: CountryListProps) => {
   }
 
   return (
-    <section className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <motion.section
+      className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: "linear" }}
+    >
       {displayedCountries.map((country) => (
         <CountryCard key={country.cca3} country={country as Country} />
       ))}
-    </section>
+    </motion.section>
   );
 };
 
