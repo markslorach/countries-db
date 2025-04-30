@@ -26,7 +26,7 @@ pnpm install
 
 ### Environment Variables
 
-Before running the project, create a `.env` file in the root directory and add the following keys:
+Before running the project, create a `.env` file in the root directory and add the following keys -
 
 > **Note:** You must supply your own values for each key below.
 
