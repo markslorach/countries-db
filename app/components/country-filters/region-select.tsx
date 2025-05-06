@@ -21,7 +21,10 @@ const RegionSelect = () => {
       onValueChange={(value) => setSelectedRegion(value as Region)}
       aria-label="Region select"
     >
-      <SelectTrigger className="h-14 w-full cursor-pointer bg-white px-5 sm:w-56" aria-label="Region select trigger">
+      <SelectTrigger
+        className="h-14 w-full cursor-pointer bg-white px-5 sm:w-56"
+        aria-label="Region select trigger"
+      >
         <SelectValue placeholder="All Regions" />
       </SelectTrigger>
       <SelectContent>
