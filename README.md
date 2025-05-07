@@ -67,6 +67,7 @@ pnpm start
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
+- Zod
 - Better Auth
 - Prisma (PostgreSQL)
 
