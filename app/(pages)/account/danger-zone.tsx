@@ -25,7 +25,7 @@ const DangerZone = ({ isTestAccount, isOAuthUser }: DeleteAccountProps) => {
 
           <p className="text-muted-foreground text-sm">
             Deleting your account will remove all your data from our database.
-            You will be promted to confirm your password before your account is
+            You will be prompted to confirm your password before your account is
             deleted.
           </p>
         </div>
