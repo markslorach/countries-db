@@ -2,7 +2,7 @@
 import {
   addFavouriteCountryAction,
   removeFavouriteCountryAction,
-} from "@/server/user";
+} from "@/server/actions";
 import { Country } from "@/types/country";
 import { createContext, useOptimistic } from "react";
 import { toast } from "sonner";

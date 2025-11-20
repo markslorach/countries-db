@@ -7,7 +7,7 @@ import Footer from "./components/shared/footer";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Providers from "@/providers/providers";
-import { getCachedFavouriteCountries } from "@/server/user";
+import { getFavouriteCountries } from "@/server/user";
 import { Country } from "@/types/country";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { User } from "better-auth";
@@ -35,7 +35,7 @@ export default async function RootLayout({
   let favouriteCountries: Country[] = [];
 
   if (session) {
-    const result = await getCachedFavouriteCountries(session.user);
+    const result = await getFavouriteCountries(session.user);
 
     if (result.data) favouriteCountries = result.data;
   }
